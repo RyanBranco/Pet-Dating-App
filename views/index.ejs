@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>Pet Matcher &hearts;</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="https://fonts.googleapis.com/css?family=Spartan" rel="stylesheet">
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <header>
+      <h1>Pet Matcher &hearts;</h1>
+    </header>
+    <main>
+      <img src="/images/pet-matcher-logo.png" alt="pet-matcher-logo" id="logo">
+      <div id="loginBox">
+        <h2>Welcome to Pet Matcher!</h2>
+        <p>Log into Pet Matcher using google</p>
+        <a href="/auth/google">Login with google</a>
+      </div>
+    </main>
   </body>
 </html>
