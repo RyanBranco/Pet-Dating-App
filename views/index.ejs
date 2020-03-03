@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Pet Matcher &hearts;</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link href="https://fonts.googleapis.com/css?family=Spartan" rel="stylesheet">
-  </head>
+  <%- include("partials/head") %> 
   <body>
     <header>
       <h1>Pet Matcher &hearts;</h1>
@@ -13,8 +9,13 @@
       <img src="/images/pet-matcher-logo.png" alt="pet-matcher-logo" id="logo">
       <div id="loginBox">
         <h2>Welcome to Pet Matcher!</h2>
-        <p>Log into Pet Matcher using google</p>
-        <a href="/auth/google">Login with google</a>
+        <p id="landing-text">Pet Matcher is a social platform for all of your pets. Post and talk about your pets. Read, comment, and like other peoples pets. </p>
+        <form action="/auth/google">
+          <button type="submit">
+            <img src="/images/Google_logo.png">
+            <p>Login using google &#8250;</p>
+          </button>
+        </form>
       </div>
     </main>
   </body>
