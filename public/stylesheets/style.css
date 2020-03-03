@@ -5,25 +5,28 @@ body {
 }
 
 main {
-  height: 91vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-a {
-  color: #00B7FF;
-}
-
 header {
-  position: absolute;
-  background-color: #35afb5;
-  height: 9vh;
+  position: fixed;
+  background: #3BD2D0;
+  background: -webkit-linear-gradient(top left, #3BD2D0, #1CAAB1);
+  background: -moz-linear-gradient(top left, #3BD2D0, #1CAAB1);
+  background: linear-gradient(to bottom right, #3BD2D0, #1CAAB1);
+  height: 5.5vh;
   width: 100%;
   box-shadow: 0px 0px 3px 0px black;
 }
 
-header h1 {
+#landingHeader {
+  height: 9vh;
+}
+
+#landingHeader h1 {
   position: absolute;
   top: 20px;
   margin: auto;
@@ -80,27 +83,46 @@ header h1 {
 }
 
 .nav-item {
+  display: inline-block;
   position: relative;
-  margin-top: 2rem;
-  font-size: 22px;
+  margin-top: .5vw;
+  margin-left: 13vw;
+  font-size: 15px;
   color: white;
+}
+
+.one {
+  margin-left: 16vw;
 }
 
 #nav-logo {
   position: absolute;
-  margin-top: .8rem;
-  margin-left: 2.5rem;
-  width: 13vh;
+  margin-top: .5vw;
+  margin-left: 2.5vw;
+  width: 10vh;
 }
 
 #signOut {
   float: right;
-  margin-right: 1rem;
-  margin-top: 2rem;
+  margin-right: 1vw;
+  margin-top: 1vw;
   color: white;
   position: relative;
-  font-size: 22px;
+  font-size: 16px;
   text-decoration: none;
+}
+
+#content div {
+  margin-top: 3.5rem;
+  width: 65vw;
+  height: 91vh;
+  background-color: white;
+  box-shadow: 0px 0px 5px 0px lightgrey;
+  overflow-y: scroll;
+}
+
+#content p {
+  
 }
 
 @media only screen and (max-width: 800px) {
