@@ -5,8 +5,9 @@
     <%- include("../partials/header") %>
     <main id="content">
         <div>
-            <a href="/user/posts">View Posts</a>
-            <a href="/user/comments">View Comments</a>
+            <form action="/post/add" method="POST">
+                <input type="submit" value="Post">
+            </form>
         </div>
     </main>
 </body>

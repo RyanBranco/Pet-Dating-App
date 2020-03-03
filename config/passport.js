@@ -12,18 +12,26 @@ passport.use(new GoogleStrategy({
         if (err) return cb(err);
         if (user) {
             // returning user
-            return cb(null, user);
+            if (!user.avatar) {
+                user.avatar = profile.photos[0].value;
+                user.save((err) => {
+                    return cb(null, user);
+                });
+            } else {
+                return cb(null, user);
+            }
         } else {
             // new user
             const newUser = new User({
                 name: profile.displayName,
                 email: profile.emails[0].value,
+                avatar: profile.photos[0].value,
                 googleId: profile.id
             });
             newUser.save((err) => {
                 if (err) return cb(err);
                 return cb(null, newUser)
-            })
+            });
         }
     });
 }));

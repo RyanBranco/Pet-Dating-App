@@ -2,7 +2,12 @@ var express = require('express');
 var router = express.Router();
 var userCtrl = require('../controllers/user');
 
-router.get('/', userCtrl.show)
-router.get('/pets', userCtrl.showPets)
+router.get('/comments', userCtrl.showComments)
+router.get('/posts', userCtrl.showPosts);
+router.get('/pets/new', userCtrl.showPetForm);
+router.get('/pets', userCtrl.showPets);
+router.get('/', userCtrl.show);
+
+router.post('/pets/new/add', userCtrl.addPet)
 
 module.exports = router;

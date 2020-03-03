@@ -20,7 +20,8 @@ require('./config/passport');
 
 var indexRouter = require('./routes/index');
 var matcherRouter = require('./routes/matcher');
-var userRouter = require('./routes/user')
+var userRouter = require('./routes/user');
+var postRouter = require('./routes/post');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -46,6 +47,7 @@ app.use(passport.session());
 app.use('/', indexRouter);
 app.use('/matcher', matcherRouter);
 app.use('/user', userRouter);
+app.use('/post', postRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
