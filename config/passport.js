@@ -8,7 +8,7 @@ passport.use(new GoogleStrategy({
     callbackURL: process.env.GOOGLE_CALLBACK
 }, (accessToken, refreshToken, profile, cb) => {
     //a user has loggen in with oauth...
-    User.findOne({googelId: profile.id}, (err, user) => {
+    User.findOne({googleId: profile.id}, (err, user) => {
         if (err) return cb(err);
         if (user) { 
             // returning user

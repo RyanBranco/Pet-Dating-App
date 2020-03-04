@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const petsSchema = new Schema ({
-    avatar: String,
+    avatar: {type: String, default: "https://render.fineartamerica.com/images/rendered/default/print/8.000/8.000/break/images-medium-5/round-dog-and-cat-icon-robinolimb.jpg"},
     name: {type: String, required: true},
     type: {type: String, required: true},
     gender: {type: String, required: true},

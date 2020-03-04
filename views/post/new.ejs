@@ -9,7 +9,15 @@
                 <label> Add Image:
                     <input type="file" name="attatchment">
                 </label>
-                <textarea>Whats up?..</textarea>
+                <label>Pet:
+                    <select name="pet">
+                        <% user.pets.forEach((pet) => { %>
+                            <option value="<%= pet.name %>"><%= pet.name %></option>
+                        <% }) %> 
+                    </select> 
+                </label>
+                <textarea name="content">Whats up?..</textarea>
+                <input type="hidden" name="user" value="<%= user._id %>">
                 <input type="submit" value="Post">
             </form>
         </div>

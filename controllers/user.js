@@ -1,4 +1,4 @@
-const Post = require("../models/post")
+const Post = require("../models/post");
 
 module.exports = {
     show,
@@ -7,7 +7,8 @@ module.exports = {
     addPet,
     showPosts,
     showComments,
-    update
+    update,
+    updatePet
 }
 
 function show(req, res) {
@@ -27,7 +28,11 @@ function showPetForm(req, res) {
 }
 
 function addPet(req, res) {
-    res.redirect('/user/pets')
+    req.user.pets.push(req.body);
+    req.user.save((err) => {
+        if (err) return res.redirect('/user/pets/new');
+        res.redirect('/user/pets');
+    })
 }
 
 function showPosts(req, res) {
@@ -44,4 +49,9 @@ function showComments(req, res) {
 
 function update(req, res) {
     res.redirect('/user')
+}
+
+function updatePet(req, res) {
+    console.log(req.body)
+    res.render('user/updatePet')
 }

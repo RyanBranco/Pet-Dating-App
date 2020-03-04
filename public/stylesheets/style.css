@@ -125,6 +125,11 @@ header {
   
 }
 
+#profilePic {
+  width: 3.2rem;
+  border-radius: 50px;
+}
+
 @media only screen and (max-width: 800px) {
   #loginBox {
     width: 80%;

@@ -13,9 +13,10 @@ const commentSchema = new Schema({
 const postSchema = new Schema ({
     user: {type: Schema.Types.ObjectId, ref: "User"},
     attatchment: String,
-    content: String,
-    likes: Number,
-    dislikes: Number,
+    pet: String,
+    content: {type: String, required: true},
+    likes: {type: Number, defualt: 0},
+    dislikes: {type: Number, defualt: 0},
     comments: [commentSchema]
 }, {
     timestamps: true

@@ -6,9 +6,15 @@ module.exports = {
 }
 
 function newPost(req, res) {
-    res.render('post/new')
+    res.render('post/new', {
+        user: req.user
+    })
 }
 
 function addPost(req, res) {
-    res.redirect('/matcher')
+    const post = new Post(req.body);
+    post.save((err) => {
+        if (err) return res.redirect('/post');
+        res.redirect('/matcher')
+    })
 }
