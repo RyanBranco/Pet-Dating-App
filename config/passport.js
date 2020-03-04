@@ -10,7 +10,7 @@ passport.use(new GoogleStrategy({
     //a user has loggen in with oauth...
     User.findOne({googelId: profile.id}, (err, user) => {
         if (err) return cb(err);
-        if (user) {
+        if (user) { 
             // returning user
             if (!user.avatar) {
                 user.avatar = profile.photos[0].value;

@@ -1,26 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const commentSchema = new Schema({
-    user: {},
-    content: String,
-    likes: Number,
-    dislikes: Number
-}, {
-    timestamps: true
-});
-
-const postSchema = new Schema ({
-    user: {type: String, required: true},
-    attatchment: String,
-    content: String,
-    likes: Number,
-    dislikes: Number,
-    comments: [commentSchema]
-}, {
-    timestamps: true
-});
-
 const petsSchema = new Schema ({
     avatar: String,
     name: {type: String, required: true},
@@ -36,8 +16,7 @@ const userSchema = new Schema({
     email: {type: String, required: true},
     avatar: String,
     pets: [petsSchema],
-    posts: [postSchema],
-    comments: [String],
+    posts: [{type: Schema.Types.ObjectId, ref: "Post"}],
     googleId: String
 }, {
     timestamps: true
