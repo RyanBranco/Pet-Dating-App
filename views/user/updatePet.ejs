@@ -4,8 +4,8 @@
 <body>
     <%- include("../partials/header") %>
     <main id="content">
-        <div>
-            <form action="/user/pets/update/<%=user.pets[id]%>?_method=PUT" method="POST">
+        <div  class="page">
+            <form action="/user/pets/update/<%= id %>?_method=PUT" method="POST">
                 <label>Avatar:
                     <input type="file" name="avatar" value=<%= user.pets[id].avatar %>>
                 </label>

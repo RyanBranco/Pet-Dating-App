@@ -60,8 +60,14 @@ function updatePet(req, res) {
 }
 
 function changePet(req, res) {
+    const pet = req.user.pets[req.params.id];
+    pet.avatar = req.body.avatar;
+    pet.name = req.body.name;
+    pet.type = req.body.type;
+    pet.gender = req.body.gender;
+    pet.sexuality = req.body.sexuality;
     req.user.save((err) => {
-        if (err) return res.redirect('/user/pets/update/:id');
-        res.redirect('/user/pets');
-    })
+        if (err) return console.log(err);
+        res.redirect("/user/pets");
+    });
 }

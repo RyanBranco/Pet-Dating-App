@@ -4,7 +4,7 @@
 <body>
     <%- include("../partials/header") %>
     <main id="content">
-        <div>
+        <div class="page">
             <ul>
                 <% user.pets.forEach((pet, index) => { %>
                     <%- `<li><img id="profilePic" src="${pet.avatar}"> ${pet.name} ${pet.type} ${pet.gender} ${pet.sexuality} <a href="/user/pets/update/${index}">Edit Pet</a></li>` %>

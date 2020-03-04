@@ -12,6 +12,7 @@ function newPost(req, res) {
 }
 
 function addPost(req, res) {
+    console.log(req.user)
     const post = new Post(req.body);
     post.save((err) => {
         if (err) return res.redirect('/post');
