@@ -10,4 +10,6 @@ router.get('/', userCtrl.show);
 
 router.post('/pets/new/add', userCtrl.addPet)
 
+router.put('/update', userCtrl.update)
+
 module.exports = router;

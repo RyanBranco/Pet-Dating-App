@@ -12,8 +12,8 @@ const commentSchema = new Schema({
 
 const postSchema = new Schema ({
     user: {type: String, required: true},
-    content: String,
     attatchment: String,
+    content: String,
     likes: Number,
     dislikes: Number,
     comments: [commentSchema]

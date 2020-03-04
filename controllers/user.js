@@ -4,18 +4,19 @@ module.exports = {
     showPetForm,
     addPet,
     showPosts,
-    showComments
+    showComments,
+    update
 }
 
 function show(req, res) {
     res.render('user/userDetails', {
-        
+        user: req.user
     })
 }
 
 function showPets(req, res) {
     res.render('user/userPets', {
-
+        user: req.user
     })
 }
 
@@ -28,9 +29,17 @@ function addPet(req, res) {
 }
 
 function showPosts(req, res) {
-    res.render('user/posts')
+    res.render('user/posts', {
+        user: req.user
+    })
 }
 
 function showComments(req, res) {
-    res.render('user/comments')
+    res.render('user/comments', {
+        user: req.user
+    })
+}
+
+function update(req, res) {
+    res.redirect('/user')
 }
