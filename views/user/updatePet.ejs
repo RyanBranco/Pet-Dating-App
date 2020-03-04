@@ -5,8 +5,65 @@
     <%- include("../partials/header") %>
     <main id="content">
         <div>
-            <!-- Finish implimenting update pet -->
-            <p>This is update pet</p>
+            <form action="/user/pets/update/<%=user.pets[id]%>?_method=PUT" method="POST">
+                <label>Avatar:
+                    <input type="file" name="avatar" value=<%= user.pets[id].avatar %>>
+                </label>
+                <label>Name:
+                    <input name="name" value=<%= user.pets[id].name %>>
+                </label>
+                <label>Animal:
+                    <select name="type" value=<%= user.pets[id].type %>>
+                        <option value="bird">Bird</option>
+                        <option value="cat">Cat</option>
+                        <option value="chinchilla">Chinchilla</option>
+                        <option value="dog">Dog</option>
+                        <option value="duck">Duck</option>
+                        <option value="eel">Eel</option>
+                        <option value="ferret">Ferret</option>
+                        <option value="fish">Fish</option>
+                        <option value="frog">Frog</option>
+                        <option value="gerbil">Gerbil</option>
+                        <option value="goat">Goat</option>
+                        <option value="guinea-pig">Guinea-Pig</option>
+                        <option value="hamster">Hamster</option>
+                        <option value="hedgehog">Hedgehog</option>
+                        <option value="hermit-crab">Hermit-Crab</option>
+                        <option value="horse">Horse</option>
+                        <option value="lizard">Lizard</option>
+                        <option value="mouse">Mouse</option>
+                        <option value="rabbit">Rabbit</option>
+                        <option value="rat">Rat</option>
+                        <option value="sheep">Sheep</option>
+                        <option value="snake">Snake</option>
+                        <option value="sugar-glider">Sugar-Glider</option>
+                        <option value="turtle">Turtle</option>
+                    </select>
+                </label>
+                <label>Gender:
+                    <select name="gender" value=<%= user.pets[id].gender %>>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="transgender">transgender</option>
+                        <option value="gender-neutral">Gender Neutral</option>
+                        <option value="non-binary">Non Binary</option>
+                        <option value="agender">Agender</option>
+                        <option value="pangender">Pangender</option>
+                        <option value="genderqueer">Genderqueer</option>
+                        <option value="two-spirit">Two Spirit</option>
+                        <option value="third-gender">Third Gender</option>
+                    </select>
+                </label>
+                <label>Sexuality:
+                    <select name="sexuality" value=<%= user.pets[id].sexuality %>>
+                        <option value="heterosexual">Heterosexual</option>
+                        <option value="homosexual">HomoSexual</option>
+                        <option value="bisexual">Bixsexual</option>
+                        <option value="pansexual">Pansexual</option>
+                    </select>
+                </label>
+                <input type="submit" value="Add Pet">
+            </form>
         </div>
     </main>
 </body>

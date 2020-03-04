@@ -7,8 +7,9 @@ module.exports = {
     addPet,
     showPosts,
     showComments,
-    update,
-    updatePet
+    updateUser,
+    updatePet,
+    changePet
 }
 
 function show(req, res) {
@@ -47,11 +48,20 @@ function showComments(req, res) {
     })
 }
 
-function update(req, res) {
+function updateUser(req, res) {
     res.redirect('/user')
 }
 
 function updatePet(req, res) {
-    console.log(req.body)
-    res.render('user/updatePet')
+    res.render('user/updatePet', {
+        id: req.params.id,
+        user: req.user
+    })
+}
+
+function changePet(req, res) {
+    req.user.save((err) => {
+        if (err) return res.redirect('/user/pets/update/:id');
+        res.redirect('/user/pets');
+    })
 }
