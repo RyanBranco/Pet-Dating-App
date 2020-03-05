@@ -5,7 +5,18 @@
     <%- include("../partials/header") %>
     <main id="content">
         <div class="page">
-            <p>This is user posts</p>
+            <% posts.forEach((post, index) => { %>
+                <form action="/user/post/delete/<%= index %>?_method=DELETE" method="POST">
+                    <div class="postCard">
+                        <img class="storyPic" src="<%= post.attatchment %>">
+                        <p class="petInfo">petInfo</p>
+                        <img class="profilePic" src=""> 
+                        <p class="userInfo"></p>
+                        <p class="userStory"><%= post.content %></p>
+                        <a class="actions" href="/post/view">View Comments</a><input type="submit" value="DELETE POST">
+                    </div>
+                </form>
+            <% }) %> 
         </div>
     </main>
 </body>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("../partials/head") %>
+<body>
+    <%- include("../partials/header") %>
+    <main id="content">
+        <div class="page">
+            <div class="postCard">
+                <img class="storyPic" src="<%= post.attatchment %>">
+                <p class="petInfo">petInfo</p>
+                <img class="profilePic" src=""> 
+                <p class="userInfo"></p>
+                <p class="userStory"><%= post.content %></p>
+            </div>
+            <img class="profilePic" src="<%= user.avatar %>">
+            <p><%= user.name %></p>
+            <form action="/post/view/<%= postId %>/comment" method="POST">
+                <textarea name="content" placeholder="So what do you think?"></textarea>
+                <input type="hidden" name="user" value="<%= user._id %>">
+                <input type="submit" value="Comment">
+            </form>
+            <% post.comments.forEach((comment, index) => { %>
+                <p><%= comment.content %></p>
+            <% }) %>
+        </div>
+    </main>
+</body>
+</html>

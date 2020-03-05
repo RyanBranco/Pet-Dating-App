@@ -6,10 +6,11 @@ module.exports = {
     showPetForm,
     addPet,
     showPosts,
-    showComments,
     updateUser,
     updatePet,
-    changePet
+    changePet,
+    deletePet,
+    deletePost
 }
 
 function show(req, res) {
@@ -20,7 +21,8 @@ function show(req, res) {
 
 function showPets(req, res) {
     res.render('user/userPets', {
-        user: req.user
+        user: req.user,
+        selected: "selected"
     })
 }
 
@@ -37,25 +39,26 @@ function addPet(req, res) {
 }
 
 function showPosts(req, res) {
-    res.render('user/posts', {
-        user: req.user
-    })
-}
-
-function showComments(req, res) {
-    res.render('user/comments', {
-        user: req.user
+    Post.find({user: req.user.id}, (err, posts) => {
+        res.render('user/posts', {
+            user: req.user,
+            posts
+        })
     })
 }
 
 function updateUser(req, res) {
-    res.redirect('/user')
+    const user = req.user;
+    user.name = req.body.name;
+    user.save((err) => {
+        res.redirect('/user');
+    })
 }
 
 function updatePet(req, res) {
     res.render('user/updatePet', {
-        id: req.params.id,
-        user: req.user
+        pet: req.user.pets[req.params.id],
+        id: req.params.id
     })
 }
 
@@ -70,4 +73,25 @@ function changePet(req, res) {
         if (err) return console.log(err);
         res.redirect("/user/pets");
     });
+}
+
+function deletePet(req, res) {
+    const pet = req.user.pets[req.params.id];
+    pet.remove((err) => {
+        if (err) return res.redirect(`/user/pets/update/${req.params.id}`)
+        req.user.save((err) => {
+            if (err) return res.redirect(`/user/pets/update/${req.params.id}`)
+            res.redirect('/user/pets')
+        })
+    });
+}
+
+function deletePost(req, res) {
+    const postId = req.user.posts[req.params.id];
+    Post.findById((postId), (err, post) => {
+        post.deleteOne((err) => {
+            if (err) return res.redirect('/user/posts');
+        })
+        // remove reference to post from user!!!!
+    })
 }

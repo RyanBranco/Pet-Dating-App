@@ -4,8 +4,6 @@ const Schema = mongoose.Schema;
 const commentSchema = new Schema({
     user: {type: Schema.Types.ObjectId, ref: "User"},
     content: String,
-    likes: Number,
-    dislikes: Number
 }, {
     timestamps: true
 });

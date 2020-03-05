@@ -7,62 +7,65 @@
         <div  class="page">
             <form action="/user/pets/update/<%= id %>?_method=PUT" method="POST">
                 <label>Avatar:
-                    <input type="file" name="avatar" value=<%= user.pets[id].avatar %>>
+                    <input type="file" name="avatar" value="<%= pet.avatar %>">
                 </label>
                 <label>Name:
-                    <input name="name" value=<%= user.pets[id].name %>>
+                    <input name="name" value="<%= pet.name %>">
                 </label>
                 <label>Animal:
-                    <select name="type" value=<%= user.pets[id].type %>>
-                        <option value="bird">Bird</option>
-                        <option value="cat">Cat</option>
-                        <option value="chinchilla">Chinchilla</option>
-                        <option value="dog">Dog</option>
-                        <option value="duck">Duck</option>
-                        <option value="eel">Eel</option>
-                        <option value="ferret">Ferret</option>
-                        <option value="fish">Fish</option>
-                        <option value="frog">Frog</option>
-                        <option value="gerbil">Gerbil</option>
-                        <option value="goat">Goat</option>
-                        <option value="guinea-pig">Guinea-Pig</option>
-                        <option value="hamster">Hamster</option>
-                        <option value="hedgehog">Hedgehog</option>
-                        <option value="hermit-crab">Hermit-Crab</option>
-                        <option value="horse">Horse</option>
-                        <option value="lizard">Lizard</option>
-                        <option value="mouse">Mouse</option>
-                        <option value="rabbit">Rabbit</option>
-                        <option value="rat">Rat</option>
-                        <option value="sheep">Sheep</option>
-                        <option value="snake">Snake</option>
-                        <option value="sugar-glider">Sugar-Glider</option>
-                        <option value="turtle">Turtle</option>
+                    <select name="type">
+                        <option value="bird" <%- pet.type === "bird" ? "selected" : "" %>>Bird</option>
+                        <option value="cat" <%- pet.type === "cat" ? "selected" : "" %>>Cat</option>
+                        <option value="chinchilla" <%- pet.type === "chinchilla" ? "selected" : "" %>>Chinchilla</option>
+                        <option value="dog" <%- pet.type === "dog" ? "selected" : "" %>>Dog</option>
+                        <option value="duck" <%- pet.type === "duck" ? "selected" : "" %>>Duck</option>
+                        <option value="eel" <%- pet.type === "eel" ? "selected" : "" %>>Eel</option>
+                        <option value="ferret" <%- pet.type === "ferret" ? "selected" : "" %>>Ferret</option>
+                        <option value="fish" <%- pet.type === "fish" ? "selected" : "" %>>Fish</option>
+                        <option value="frog" <%- pet.type === "frog" ? "selected" : "" %>>Frog</option>
+                        <option value="gerbil" <%- pet.type === "gerbil" ? "selected" : "" %>>Gerbil</option>
+                        <option value="goat" <%- pet.type === "goat" ? "selected" : "" %>>Goat</option>
+                        <option value="guinea-pig" <%- pet.type === "guinea-pig" ? "selected" : "" %>>Guinea-Pig</option>
+                        <option value="hamster" <%- pet.type === "hamster" ? "selected" : "" %>>Hamster</option>
+                        <option value="hedgehog" <%- pet.type === "hedhehog" ? "selected" : "" %>>Hedgehog</option>
+                        <option value="hermit-crab" <%- pet.type === "hermit-crab" ? "selected" : "" %>>Hermit-Crab</option>
+                        <option value="horse" <%- pet.type === "horse" ? "selected" : "" %>>Horse</option>
+                        <option value="lizard" <%- pet.type === "lizard" ? "selected" : "" %>>Lizard</option>
+                        <option value="mouse" <%- pet.type === "mouse" ? "selected" : "" %>>Mouse</option>
+                        <option value="rabbit" <%- pet.type === "rabbit" ? "selected" : "" %>>Rabbit</option>
+                        <option value="rat" <%- pet.type === "rat" ? "selected" : "" %>>Rat</option>
+                        <option value="sheep" <%- pet.type === "sheep" ? "selected" : "" %>>Sheep</option>
+                        <option value="snake" <%- pet.type === "snake" ? "selected" : "" %>>Snake</option>
+                        <option value="sugar-glider" <%- pet.type === "sugar-glider" ? "selected" : "" %>>Sugar-Glider</option>
+                        <option value="turtle" <%- pet.type === "turtle" ? "selected" : "" %>>Turtle</option>
                     </select>
                 </label>
                 <label>Gender:
-                    <select name="gender" value=<%= user.pets[id].gender %>>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value="transgender">transgender</option>
-                        <option value="gender-neutral">Gender Neutral</option>
-                        <option value="non-binary">Non Binary</option>
-                        <option value="agender">Agender</option>
-                        <option value="pangender">Pangender</option>
-                        <option value="genderqueer">Genderqueer</option>
-                        <option value="two-spirit">Two Spirit</option>
-                        <option value="third-gender">Third Gender</option>
+                    <select name="gender" value="<%= pet.gender %>">
+                        <option value="male" <%- pet.gender === "male" ? "selected" : "" %> >Male</option>
+                        <option value="female" <%- pet.gender === "female" ? "selected" : "" %> >Female</option>
+                        <option value="transgender" <%- pet.gender === "transgender" ? "selected" : "" %> >transgender</option>
+                        <option value="gender-neutral" <%- pet.gender === "gender-neutral" ? "selected" : "" %> >Gender Neutral</option>
+                        <option value="non-binary" <%- pet.gender === "non-binary" ? "selected" : "" %> >Non Binary</option>
+                        <option value="agender" <%- pet.gender === "agender" ? "selected" : "" %> >Agender</option>
+                        <option value="pangender" <%- pet.gender === "pangender" ? "selected" : "" %> >Pangender</option>
+                        <option value="genderqueer" <%- pet.gender === "genderqueer" ? "selected" : "" %> >Genderqueer</option>
+                        <option value="two-spirit" <%- pet.gender === "two-spirit" ? "selected" : "" %> >Two Spirit</option>
+                        <option value="third-gender" <%- pet.gender === "third-gender" ? "selected" : "" %> >Third Gender</option>
                     </select>
                 </label>
                 <label>Sexuality:
-                    <select name="sexuality" value=<%= user.pets[id].sexuality %>>
-                        <option value="heterosexual">Heterosexual</option>
-                        <option value="homosexual">HomoSexual</option>
-                        <option value="bisexual">Bixsexual</option>
-                        <option value="pansexual">Pansexual</option>
+                    <select name="sexuality" value="<%= pet.sexuality %>">
+                        <option value="heterosexual" <%- pet.sexuality === "heterosexual" ? "selected" : "" %> >Heterosexual</option>
+                        <option value="homosexual" <%- pet.sexuality === "homosexual" ? "selected" : "" %>>HomoSexual</option>
+                        <option value="bisexual" <%- pet.sexuality === "bisexual" ? "selected" : "" %>>Bixsexual</option>
+                        <option value="pansexual" <%- pet.sexuality === "pansexual" ? "selected" : "" %>>Pansexual</option>
                     </select>
                 </label>
-                <input type="submit" value="Add Pet">
+                <input type="submit" value="Edit Pet">
+            </form>
+            <form action="/user/pets/delete/<%= id %>?_method=DELETE" method="POST">
+                <input type="submit" value="DELETE PET">
             </form>
         </div>
     </main>

@@ -5,13 +5,16 @@
     <%- include("../partials/header") %>
     <main id="content">
         <div class="page">
-            <div class="postCard">
-                <img class="storyPic">
-                <p class="petInfo">petInfo</p>
-                <p class="userInfo">userInfo</p>
-                <p class="userStory">userStory</p>
-                <p class="actions">actions</p>
-            </div>
+            <% posts.forEach((post, index) => { %> 
+                <div class="postCard">
+                    <img class="storyPic" src="<%= post.attatchment %>">
+                    <p class="petInfo">petInfo</p>
+                    <img class="profilePic" src=""> 
+                    <p class="userInfo"></p>
+                    <p class="userStory"><%= post.content %></p>
+                    <a class="actions" href="/post/view/<%= index %>">View Comments</a>
+                </div>
+            <% }) %> 
         </div>
     </main>
 </body>
