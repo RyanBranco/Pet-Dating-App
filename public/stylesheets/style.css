@@ -161,6 +161,7 @@ input:focus {
 }
 
 input {
+  background-color: rgba(var(--b3f,250,250,250),1);
   font-size: 20px;
   border-top: none;
   border-left: none;
@@ -172,6 +173,7 @@ input {
 }
 
 select {
+  background-color: white;
   font-size: 14px;
   margin-right: 3rem;
 }
@@ -184,7 +186,6 @@ select {
 .delete {
   float: right;
   font-size: 16px;
-  margin-top: .2rem;
   border-radius: 5px;
   padding: .3rem;
   border: 1px solid red;
@@ -194,6 +195,7 @@ select {
 
 .edit {
   display: block;
+  margin-bottom: .3rem;
   margin-top: 5rem;
   font-size: 23px;
   border-radius: 5px;
@@ -240,6 +242,19 @@ li {
   background-color: rgba(var(--b3f,250,250,250),1);
   box-shadow: 0px 0px 3px 0px lightgrey;
   width: 85%;
+}
+
+.card {
+  padding: 1rem;
+  position: relative;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba(var(--b3f,250,250,250),1);
+  box-shadow: 0px 0px 3px 0px lightgrey;
+  width: 95%;
 }
 
 .userInfo {
