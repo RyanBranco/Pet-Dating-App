@@ -6,14 +6,15 @@
     <main id="content">
         <div class="page">
             <% posts.forEach((post, index) => { %>
-                <form action="/user/post/delete/<%= index %>?_method=DELETE" method="POST">
+                <% let postId = post._id %> 
+                <form action="/user/post/delete/<%= postId %>?_method=DELETE" method="POST">
                     <div class="postCard">
                         <img class="storyPic" src="<%= post.attatchment %>">
                         <p class="petInfo">petInfo</p>
                         <img class="profilePic" src=""> 
                         <p class="userInfo"></p>
                         <p class="userStory"><%= post.content %></p>
-                        <a class="actions" href="/post/view">View Comments</a><input type="submit" value="DELETE POST">
+                        <a class="actions" href="/post/view/<%= postId %>">View Comments</a><input type="submit" value="DELETE POST">
                     </div>
                 </form>
             <% }) %> 

@@ -126,6 +126,100 @@ header {
   
 }
 
+.pageTitle {
+  font-size: 2rem;
+  display: inline-block;
+  margin-right: 2rem;
+  margin-left: 1rem;
+  margin-bottom: .2rem;
+}
+
+.anchor {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  width: 2.85rem;
+  background-color: #24b519;
+  color: white;
+  font-size: 18px;
+  border: 2px solid #24b519;
+  padding: .3rem;
+  border-radius: 3px;
+}
+
+.petName {
+  margin-bottom: 3rem;
+}
+
+label {
+  display: block;
+  font-size: 15px;
+  margin-bottom: .2rem;
+}
+
+input {
+  font-size: 20px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid grey;
+  margin-top: .7rem;
+  display: inline-block;
+  margin-bottom: 3rem;
+}
+
+.selectLabel {
+  display: inline-block;
+}
+
+.chooseFile {
+  font-size: 10px;
+}
+
+.delete {
+  border-radius: 5px;
+  padding: .3rem;
+  border: 1px solid red;
+  background-color: red;
+  color: white;
+}
+
+.edit {
+  border-radius: 5px;
+  color: white;
+  background-color: #24b519;
+  border: 1px solid #24b519;
+  float: right;
+
+  margin: 0;
+}
+
+#addPetPlus {
+  font-size: 1rem;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  display: block;
+}
+
+li {
+  border-radius: 4px;
+  box-shadow: 0px 0px 2px 0px lightgrey;
+  background-color: rgba(var(--b3f,250,250,250),1);
+  display: inline-block;
+  list-style: none;
+  border: 1px solid lightgrey;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.petItem {
+  margin-top: 0px;
+  margin-bottom: .4rem; 
+  margin-left: 1rem;
+}
+
 .postCard {
   position: relative;
   margin-top: 1rem;
@@ -138,9 +232,18 @@ header {
   width: 85%;
 }
 
+.userInfo {
+  display: inline-block;
+  font-size: 17px;
+}
+
 .profilePic {
   width: 3.2rem;
   border-radius: 50px;
+}
+.largeProfilePic {
+  width: 7rem;
+  border-radius: 70px;
 }
 
 @media only screen and (max-width: 800px) {

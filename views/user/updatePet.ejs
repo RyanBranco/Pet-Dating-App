@@ -6,14 +6,16 @@
     <main id="content">
         <div  class="page">
             <form action="/user/pets/update/<%= id %>?_method=PUT" method="POST">
+                <input class="edit" type="submit" value="Edit Pet">
+                <img src="<%= pet.avatar %>" ><h1 class="petName"><%= pet.name %></h1>
                 <label>Avatar:
-                    <input type="file" name="avatar" value="<%= pet.avatar %>">
+                    <input type="file" name="avatar" value="<%= pet.avatar %>" class="chooseFile">
                 </label>
                 <label>Name:
                     <input name="name" value="<%= pet.name %>">
                 </label>
-                <label>Animal:
-                    <select name="type">
+                <label class="selectLabel">Animal:
+                    <select name="type" >
                         <option value="bird" <%- pet.type === "bird" ? "selected" : "" %>>Bird</option>
                         <option value="cat" <%- pet.type === "cat" ? "selected" : "" %>>Cat</option>
                         <option value="chinchilla" <%- pet.type === "chinchilla" ? "selected" : "" %>>Chinchilla</option>
@@ -62,10 +64,9 @@
                         <option value="pansexual" <%- pet.sexuality === "pansexual" ? "selected" : "" %>>Pansexual</option>
                     </select>
                 </label>
-                <input type="submit" value="Edit Pet">
             </form>
             <form action="/user/pets/delete/<%= id %>?_method=DELETE" method="POST">
-                <input type="submit" value="DELETE PET">
+                <input class="delete" type="submit" value="DELETE PET">
             </form>
         </div>
     </main>

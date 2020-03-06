@@ -6,6 +6,8 @@
     <main id="content">
         <div class="page">
             <div class="postCard">
+                <img class="profilePic" src="<%= postedUser.avatar %>">
+                <p><%= postedUser.name %>'s post:</p>
                 <img class="storyPic" src="<%= post.attatchment %>">
                 <p class="petInfo">petInfo</p>
                 <img class="profilePic" src=""> 
@@ -16,10 +18,12 @@
             <p><%= user.name %></p>
             <form action="/post/view/<%= postId %>/comment" method="POST">
                 <textarea name="content" placeholder="So what do you think?"></textarea>
-                <input type="hidden" name="user" value="<%= user._id %>">
+                
                 <input type="submit" value="Comment">
             </form>
             <% post.comments.forEach((comment, index) => { %>
+                <img src="<%= comment.user.avatar %>" class="profilePic">
+                <p><%= comment.user.name %></p>
                 <p><%= comment.content %></p>
             <% }) %>
         </div>

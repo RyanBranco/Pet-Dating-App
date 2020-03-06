@@ -7,9 +7,6 @@
         <div class="page">
             <form action="/user/update?_method=PUT" method="POST">
                 <img class="profilePic" src="<%= user.avatar %>">
-                <label> Change Avatar:
-                    <input type="file" value="<%= user.avatar %>" name="avatar">
-                </label>
                 <label> Change Name:
                     <input type="text" value="<%= user.name %>" name="name">
                 </label>

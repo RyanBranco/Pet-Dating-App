@@ -16,7 +16,6 @@ const userSchema = new Schema({
     email: {type: String, required: true},
     avatar: String,
     pets: [petsSchema],
-    posts: [{type: Schema.Types.ObjectId, ref: "Post"}],
     googleId: String
 }, {
     timestamps: true

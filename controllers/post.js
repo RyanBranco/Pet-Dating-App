@@ -1,5 +1,5 @@
 const Post = require('../models/post');
-
+const User = require('../models/user')
 module.exports = {
     newPost,
     addPost,
@@ -17,30 +17,26 @@ function addPost(req, res) {
     const post = new Post(req.body);
     post.save((err, post) => {
         if (err) return res.redirect('/post')
-        req.user.posts.push(post._id);
-        req.user.save((err) => {
-            if (err) return res.redirect('/post');
-            res.redirect('/matcher')
-        })
+        res.redirect('/matcher')
     })
 }
 
 function viewPost(req, res) {
-    Post.find({}, (err, posts) => {
+    Post.findById(req.params.id).populate("user").exec((err, post) => {
         res.render('post/comments', {
-            post: posts[req.params.id],
+            postedUser: post.user,
             postId: req.params.id,
-            user: req.user
-        })
+            user: req.user,
+            post
+        })  
     })
 }
 
 function comment(req, res) {
-    Post.find({}, (err, posts) => {
-        const thisPost = posts[req.params.id];
-        thisPost.comments.push(req.body);
-        console.log(thisPost.comments);
-        thisPost.save((err) => {
+    Post.findById((req.params.id), (err, post) => {
+        req.body.user = req.user;
+        post.comments.push(req.body);
+        post.save((err, p) => {
             if (err) return console.log(err);
             res.redirect(`/post/view/${req.params.id}`)
         })

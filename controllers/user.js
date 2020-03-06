@@ -87,11 +87,11 @@ function deletePet(req, res) {
 }
 
 function deletePost(req, res) {
-    const postId = req.user.posts[req.params.id];
+    const postId = req.params.id;
     Post.findById((postId), (err, post) => {
         post.deleteOne((err) => {
             if (err) return res.redirect('/user/posts');
+            res.redirect('/user/posts')
         })
-        // remove reference to post from user!!!!
     })
 }

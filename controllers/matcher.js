@@ -6,13 +6,9 @@ module.exports = {
 }
 
 function index(req, res) {
-    Post.find({}, (err, post) => {
-        console.log(post)
-        // User.findById(post.id, (err, user) => {
-            // console.log(user)
-            res.render("matcher/index", {
-                posts: post
-            })
-        // })
+    Post.find({}).populate('user').exec((err, posts) => {
+        res.render("matcher/index", {
+            posts
+        })
     })
 }
