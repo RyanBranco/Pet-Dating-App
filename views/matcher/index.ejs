@@ -6,15 +6,15 @@
     <main id="content">
         <div class="page">
             <h1><%= user.name %>'s feed:</h1>
-            <% posts.forEach((post, index) => { %>
-                <% let postId = post._id %> 
+            <% for(let i = posts.length - 1; i >= 0; i-- ) { %>
+                <% let postId = posts[i]._id %> 
                 <div class="postCard" id="viewPost">
-                    <img class="storyPic" src="<%= post.attatchment %>">
-                    <img class="profilePicSmall" src="<%= post.user.avatar %>"><p class="userInfo"><%= post.user.name %> <small>about</small> <%= post.pet %>: </p></p>
-                    <p class="userStory"><%= post.content %></p>
+                    <img class="storyPic" src="<%= posts[i].attatchment %>">
+                    <img class="profilePicSmall" src="<%= posts[i].user.avatar %>"> <p class="userInfo"><%= posts[i].user.name %> <small>about</small> <%= posts[i].pet %>: </p></p>
+                    <p class="userStory"><%= posts[i].content %></p>
                     <hr>
                     <a class="actions" href="/post/view/<%= postId %>" id="viewC">View Comments</a>                </div>
-            <% }) %> 
+            <% } %> 
         </div>
     </main>
 </body>
