@@ -8,13 +8,13 @@
             <% posts.forEach((post, index) => { %>
                 <% let postId = post._id %> 
                 <form action="/user/post/delete/<%= postId %>?_method=DELETE" method="POST">
-                    <div class="postCard">
+                    <div class="postCard" id="viewPost">
                         <img class="storyPic" src="<%= post.attatchment %>">
-                        <p class="petInfo">petInfo</p>
-                        <img class="profilePic" src=""> 
-                        <p class="userInfo"></p>
+                        <img class="profilePicSmall" src="<%= user.avatar %>"><p class="userInfo"><%= user.name %> <small>about</small> <%= post.pet %>: </p>
                         <p class="userStory"><%= post.content %></p>
-                        <a class="actions" href="/post/view/<%= postId %>">View Comments</a><input type="submit" value="DELETE POST">
+                        <hr>
+                        <a class="actions" href="/post/view/<%= postId %>" id="viewC">View Comments</a>
+                        <input type="submit" value="DELETE POST" class="delete" id="deletePost">
                     </div>
                 </form>
             <% }) %> 

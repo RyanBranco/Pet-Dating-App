@@ -5,21 +5,17 @@
     <%- include("../partials/header") %>
     <main id="content">
         <div class="page">
-            <div class="postCard">
-                <img class="profilePic" src="<%= postedUser.avatar %>">
-                <p><%= postedUser.name %>'s post:</p>
+            <div class="postCard" id="viewPost">
                 <img class="storyPic" src="<%= post.attatchment %>">
-                <p class="petInfo">petInfo</p>
-                <img class="profilePic" src=""> 
-                <p class="userInfo"></p>
-                <p class="userStory"><%= post.content %></p>
+                <img class="profilePicSmall" src="<%= user.avatar %>"><p class="userInfo"><%= user.name %> <small>about</small> <%= post.pet %>: </p>
+                <p class="userStory" id="viewCommentPost"><%= post.content %></p>
             </div>
             <img class="profilePic" src="<%= user.avatar %>">
             <p><%= user.name %></p>
             <form action="/post/view/<%= postId %>/comment" method="POST">
                 <textarea name="content" placeholder="So what do you think?"></textarea>
                 
-                <input type="submit" value="Comment">
+                <input type="submit" value="Comment" id="commentButton">
             </form>
             <% post.comments.forEach((comment, index) => { %>
                 <img src="<%= comment.user.avatar %>" class="profilePic">

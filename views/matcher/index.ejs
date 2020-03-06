@@ -7,14 +7,12 @@
         <div class="page">
             <% posts.forEach((post, index) => { %>
                 <% let postId = post._id %> 
-                <div class="postCard">
-                    <img class="profilePic" src="<%= post.user.avatar %>">
-                    <p class="userInfo"><%= post.user.name %></p>
-                    <p class="petInfo">petInfo</p>
-                    <img class="profilePic" src=""> 
+                <div class="postCard" id="viewPost">
+                    <img class="storyPic" src="<%= post.attatchment %>">
+                    <img class="profilePicSmall" src="<%= post.user.avatar %>"><p class="userInfo"><%= post.user.name %> <small>about</small> <%= post.pet %>: </p></p>
                     <p class="userStory"><%= post.content %></p>
-                    <a class="actions" href="/post/view/<%= postId %>">View Comments</a>
-                </div>
+                    <hr>
+                    <a class="actions" href="/post/view/<%= postId %>" id="viewC">View Comments</a>                </div>
             <% }) %> 
         </div>
     </main>

@@ -190,7 +190,7 @@ select {
 
 .delete {
   float: right;
-  font-size: 16px;
+  font-size: 1rem;
   border-radius: 5px;
   padding: .3rem;
   border: 1px solid red;
@@ -202,7 +202,7 @@ select {
   display: block;
   margin-bottom: .3rem;
   margin-top: 3rem;
-  font-size: 23px;
+  font-size: 1rem;
   border-radius: 5px;
   color: white;
   background-color: #24b519;
@@ -226,6 +226,27 @@ select {
   float: right;
   text-decoration: underline;
   color: #00B7FF;
+}
+
+#viewC {
+  margin-top: .5rem;
+  position: relative;
+  margin-left: 1rem;
+  text-decoration: underline;
+  color: #00B7FF;
+}
+#viewCommentPost {
+  margin-bottom: 0;
+}
+
+.actions {
+  display: inline-block;
+}
+
+#deletePost {
+  font-size: 13px;
+  bottom: .5rem;
+  margin-top: .3rem;
 }
 
 a {
@@ -313,8 +334,44 @@ textarea:focus {
 }
 
 .userInfo {
+  margin-bottom: 0px;
+  border-bottom: 1px solid lightgrey;
   display: inline-block;
-  font-size: 17px;
+  font-size: 1rem;
+}
+
+.petInfo {
+  display: block;
+}
+small {
+  font-size: .7rem;
+}
+
+.profilePicSmall {
+  border-radius: 50px;
+  width: 2.3rem;
+}
+
+.userStory {
+  margin-top: 0.7rem;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  margin-left: 3rem;
+}
+
+#commentButton {
+  color: white;
+  background-color: #1CAAB1;
+  border: none;
+  border-radius: 3px;
+}
+
+#postUser {
+  display: inline;
+}
+
+#viewPost {
+  padding: 1rem;
 }
 
 .profilePic {
