@@ -28,11 +28,16 @@ header {
 
 #landingHeader h1 {
   position: absolute;
+  font-family: "spartan";
   top: 20px;
   margin: auto;
-  font-family: "spartan";
   margin-left: 20px;
   color: white;
+}
+
+h1 {
+ font-family: "karla";
+ font-weight: 100;
 }
 
  #logo {

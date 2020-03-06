@@ -8,7 +8,8 @@ module.exports = {
 function index(req, res) {
     Post.find({}).populate('user').exec((err, posts) => {
         res.render("matcher/index", {
-            posts
+            posts,
+            user: req.user
         })
     })
 }

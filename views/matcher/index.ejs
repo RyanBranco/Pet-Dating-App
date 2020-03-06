@@ -5,6 +5,7 @@
     <%- include("../partials/header") %>
     <main id="content">
         <div class="page">
+            <h1><%= user.name %>'s feed:</h1>
             <% posts.forEach((post, index) => { %>
                 <% let postId = post._id %> 
                 <div class="postCard" id="viewPost">
