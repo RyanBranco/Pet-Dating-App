@@ -10,18 +10,24 @@
                 <img class="profilePicSmall" src="<%= user.avatar %>"><p class="userInfo"><%= user.name %> <small>about</small> <%= post.pet %>: </p>
                 <p class="userStory" id="viewCommentPost"><%= post.content %></p>
             </div>
-            <img class="profilePic" src="<%= user.avatar %>">
-            <p><%= user.name %></p>
-            <form action="/post/view/<%= postId %>/comment" method="POST">
-                <textarea name="content" placeholder="So what do you think?"></textarea>
-                
-                <input type="submit" value="Comment" id="commentButton">
-            </form>
-            <% post.comments.forEach((comment, index) => { %>
-                <img src="<%= comment.user.avatar %>" class="profilePic">
-                <p><%= comment.user.name %></p>
-                <p><%= comment.content %></p>
-            <% }) %>
+            <div id="comment">
+                <img class="profilePic" src="<%= user.avatar %>">
+                <p class="userInfo"><%= user.name %></p>
+                <form action="/post/view/<%= postId %>/comment" method="POST">
+                    <textarea name="content" placeholder="So what do you think?" id="commentBox"></textarea>
+                    <input type="submit" value="Comment" id="commentButton">
+                </form>
+            </div>
+            <br>
+            <hr>
+            <div id="commentsPage">
+                <% post.comments.forEach((comment, index) => { %>
+                    <img src="<%= comment.user.avatar %>" class="profilePicSmall">
+                    <p class="userInfo"><%= comment.user.name %>:</p>
+                    <p id="commentText"><%= comment.content %></p>
+                    <br>
+                <% }) %>
+            </div>
         </div>
     </main>
 </body>

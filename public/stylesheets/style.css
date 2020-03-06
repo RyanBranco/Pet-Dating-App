@@ -191,7 +191,7 @@ select {
 .delete {
   float: right;
   font-size: 1rem;
-  border-radius: 5px;
+  border-radius: 3px;
   padding: .3rem;
   border: 1px solid red;
   background-color: red;
@@ -203,7 +203,7 @@ select {
   margin-bottom: .3rem;
   margin-top: 3rem;
   font-size: 1rem;
-  border-radius: 5px;
+  border-radius: 3px;
   color: white;
   background-color: #24b519;
   border: 1px solid #24b519;
@@ -360,14 +360,51 @@ small {
 }
 
 #commentButton {
+  float: right;
+  margin: auto;
+  right: 0;
   color: white;
-  background-color: #1CAAB1;
+  background-color: #24b519;
   border: none;
-  border-radius: 3px;
+  border-radius: 2px;
+}
+
+#commentBox {
+  border-radius: 1px;
+  height: 3rem;
+  margin-top: .5rem;
+  margin-bottom: .4rem;
+  margin-right: 0;
+  display: inline-block;
+  width: 100%;
+}
+
+#commentText {
+  margin-left: 2rem;
+}
+
+#commentsPage {
+  padding: 1rem;
+  position: relative;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 2px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 85%;
 }
 
 #postUser {
   display: inline;
+}
+
+#comment {
+  margin: auto;
+  width: 70%;
+  padding: 2rem;
+  padding-bottom: .5rem;
+  padding-top: .5rem;
+  
 }
 
 #viewPost {
