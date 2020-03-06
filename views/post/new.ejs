@@ -5,21 +5,25 @@
     <%- include("../partials/header") %>
     <main id="content">
         <div class="page">
-            <form action="/post/add" method="POST">
-                <label class="labelNonSelect"> Add Image:
-                    <input type="file" name="attatchment" class="chooseFile">
-                </label>
-                <label>Pet:
-                    <select name="pet">
-                        <% user.pets.forEach((pet) => { %>
-                            <option value="<%= pet.name %>"><%= pet.name %></option>
-                        <% }) %> 
-                    </select> 
-                </label>
-                <textarea name="content" placeholder="Whats up?.." class="labelNonSelect"></textarea>
-                <input type="hidden" name="user" value="<%= user._id %>">
-                <input type="submit" value="Post">
-            </form>
+            <h1>Make a new post</h1>
+            <div class="card">
+                <form action="/post/add" method="POST">
+                    <label class="labelNonSelect" id="chooseFileNewPost"> Add Image:
+                        <input type="file" name="attatchment" class="chooseFile">
+                    </label>
+                    <hr>
+                    <label>Pet:
+                        <select name="pet" id="postPetSelect">
+                            <% user.pets.forEach((pet) => { %>
+                                <option value="<%= pet.name %>"><%= pet.name %></option>
+                            <% }) %> 
+                        </select> 
+                    </label>
+                    <textarea name="content" placeholder="Whats up?.." class="labelNonSelect"></textarea>
+                    <input type="hidden" name="user" value="<%= user._id %>">
+                    <input type="submit" value="Post" class="edit" id="makePost">
+                </form>
+            </div>
         </div>
     </main>
 </body>
