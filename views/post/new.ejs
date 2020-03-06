@@ -6,8 +6,8 @@
     <main id="content">
         <div class="page">
             <form action="/post/add" method="POST">
-                <label> Add Image:
-                    <input type="file" name="attatchment">
+                <label class="labelNonSelect"> Add Image:
+                    <input type="file" name="attatchment" class="chooseFile">
                 </label>
                 <label>Pet:
                     <select name="pet">
@@ -16,7 +16,7 @@
                         <% }) %> 
                     </select> 
                 </label>
-                <textarea name="content" placeholder="Whats up?.."></textarea>
+                <textarea name="content" placeholder="Whats up?.." class="labelNonSelect"></textarea>
                 <input type="hidden" name="user" value="<%= user._id %>">
                 <input type="submit" value="Post">
             </form>

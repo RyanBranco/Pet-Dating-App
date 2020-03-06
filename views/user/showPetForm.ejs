@@ -6,10 +6,10 @@
     <main id="content">
         <div class="page">
             <form action="/user/pets/new/add" method="POST">
-                <label>Avatar:
-                    <input type="file" name="avatar">
+                <label class="labelNonSelect">Avatar:
+                    <input type="file" name="avatar" class="chooseFile">
                 </label>
-                <label>Name:
+                <label class="labelNonSelect">Name:
                     <input name="name">
                 </label>
                 <label>Animal:
@@ -62,7 +62,7 @@
                         <option value="pansexual">Pansexual</option>
                     </select>
                 </label>
-                <input type="submit" value="Add Pet">
+                <input type="submit" value="Add Pet" class="edit">
             </form>
         </div>
     </main>

@@ -6,12 +6,12 @@
     <main id="content">
         <div class="page">
             <form action="/user/update?_method=PUT" method="POST">
-                <img class="profilePic" src="<%= user.avatar %>">
+                <img class="largeProfilePic" src="<%= user.avatar %>">
                 <label> Change Name:
                     <input type="text" value="<%= user.name %>" name="name">
                 </label>
                 <!-- update this so it says "updated" for a second-->
-                <input type="submit" value="Update User">
+                <input type="submit" value="Update User" class="edit">
             </form>
             <br>
             <a href="/user/posts">View Posts</a>

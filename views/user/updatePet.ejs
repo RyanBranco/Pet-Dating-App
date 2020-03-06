@@ -5,17 +5,19 @@
     <%- include("../partials/header") %>
     <main id="content">
         <div  class="page">
+            <form action="/user/pets/delete/<%= id %>?_method=DELETE" method="POST">
+                <input class="delete" type="submit" value="DELETE PET">
+            </form>
             <form action="/user/pets/update/<%= id %>?_method=PUT" method="POST">
-                <input class="edit" type="submit" value="Edit Pet">
                 <img src="<%= pet.avatar %>" ><h1 class="petName"><%= pet.name %></h1>
-                <label>Avatar:
+                <label class="labelNonSelect">Avatar:
                     <input type="file" name="avatar" value="<%= pet.avatar %>" class="chooseFile">
                 </label>
-                <label>Name:
+                <label class="labelNonSelect">Name:
                     <input name="name" value="<%= pet.name %>">
                 </label>
-                <label class="selectLabel">Animal:
-                    <select name="type" >
+                <label>Animal:
+                    <select name="type">
                         <option value="bird" <%- pet.type === "bird" ? "selected" : "" %>>Bird</option>
                         <option value="cat" <%- pet.type === "cat" ? "selected" : "" %>>Cat</option>
                         <option value="chinchilla" <%- pet.type === "chinchilla" ? "selected" : "" %>>Chinchilla</option>
@@ -64,9 +66,7 @@
                         <option value="pansexual" <%- pet.sexuality === "pansexual" ? "selected" : "" %>>Pansexual</option>
                     </select>
                 </label>
-            </form>
-            <form action="/user/pets/delete/<%= id %>?_method=DELETE" method="POST">
-                <input class="delete" type="submit" value="DELETE PET">
+                <input class="edit" type="submit" value="Edit Pet">
             </form>
         </div>
     </main>
