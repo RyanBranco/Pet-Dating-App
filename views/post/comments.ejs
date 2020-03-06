@@ -7,7 +7,7 @@
         <div class="page">
             <div class="postCard" id="viewPost">
                 <img class="storyPic" src="<%= post.attatchment %>">
-                <img class="profilePicSmall" src="<%= user.avatar %>"><p class="userInfo"><%= user.name %> <small>about</small> <%= post.pet %>: </p>
+                <img class="profilePicSmall" src="<%= post.user.avatar %>"><p class="userInfo"><%= post.user.name %> <small>about</small> <%= post.pet %>: </p>
                 <p class="userStory" id="viewCommentPost"><%= post.content %></p>
             </div>
             <div id="comment">
