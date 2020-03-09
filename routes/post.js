@@ -2,10 +2,16 @@ var express = require("express");
 var router = express.Router();
 var postCtrl = require('../controllers/post');
 
-router.get('/', postCtrl.newPost);
-router.get('/view/:id', postCtrl.viewPost)
 
-router.post('/add', postCtrl.addPost);
-router.post('/view/:id/comment', postCtrl.comment)
+router.get('/', isLoggedIn, postCtrl.newPost);
+router.get('/view/:id', isLoggedIn, postCtrl.viewPost)
+
+router.post('/add', isLoggedIn, postCtrl.addPost);
+router.post('/view/:id/comment', isLoggedIn, postCtrl.comment)
+
+function isLoggedIn(req, res, next) {
+    if ( req.isAuthenticated() ) return next();
+    res.redirect('/auth/google');
+  }
 
 module.exports = router;

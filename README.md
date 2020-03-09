@@ -22,4 +22,5 @@ Ice-Box:
 3. add likes and dislikes
 4. implement users uploading pictures
 
+[Trello Board](https://trello.com/b/jm3l5SHd/project-2-planning)
 Check out the app: [Pet Matcher](https://pet-datting-app.herokuapp.com/)
