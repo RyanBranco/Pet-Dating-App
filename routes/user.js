@@ -2,17 +2,23 @@ var express = require('express');
 var router = express.Router();
 var userCtrl = require('../controllers/user');
 
-router.get('/posts', userCtrl.showPosts);
-router.get('/pets/new', userCtrl.showPetForm);
-router.get('/pets', userCtrl.showPets);
-router.get('/pets/update/:id', userCtrl.updatePet);
-router.get('/', userCtrl.show);
+router.get('/posts', isLoggedIn, userCtrl.showPosts);
+router.get('/pets/new', isLoggedIn, userCtrl.showPetForm);
+router.get('/pets', isLoggedIn, userCtrl.showPets);
+router.get('/pets/update/:id', isLoggedIn, userCtrl.updatePet);
+router.get('/', isLoggedIn, userCtrl.show);
 
-router.post('/pets/new/add', userCtrl.addPet);
+router.post('/pets/new/add', isLoggedIn, userCtrl.addPet);
 
-router.put('/update', userCtrl.updateUser);
-router.put('/pets/update/:id', userCtrl.changePet);
+router.put('/update', isLoggedIn, userCtrl.updateUser);
+router.put('/pets/update/:id', isLoggedIn, userCtrl.changePet);
 
-router.delete('/post/delete/:id', userCtrl.deletePost);
-router.delete('/pets/delete/:id', userCtrl.deletePet);
+router.delete('/post/delete/:id', isLoggedIn, userCtrl.deletePost);
+router.delete('/pets/delete/:id', isLoggedIn, userCtrl.deletePet);
+
+function isLoggedIn(req, res, next) {
+    if ( req.isAuthenticated() ) return next();
+    res.redirect('/auth/google');
+  }
+
 module.exports = router;
