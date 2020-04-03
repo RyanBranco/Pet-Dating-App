@@ -225,6 +225,12 @@ select {
   font-size: .8rem;
 }
 
+.storyPic {
+  border-radius: 6px;
+  width: 100%;
+  margin-bottom: .5rem;
+}
+
 #viewA {
   position: relative;
   bottom: 1.2rem;
