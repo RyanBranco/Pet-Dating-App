@@ -2,7 +2,6 @@ var express = require("express");
 var router = express.Router();
 var postCtrl = require('../controllers/post');
 const multer = require("multer");
-const AWS = require("aws-sdk");
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 

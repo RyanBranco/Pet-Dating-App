@@ -11,6 +11,7 @@ const commentSchema = new Schema({
 const postSchema = new Schema ({
     user: {type: Schema.Types.ObjectId, ref: "User"},
     attatchment: String,
+    fileId: String,
     pet: String,
     content: {type: String, required: true},
     likes: {type: Number, defualt: 0},
