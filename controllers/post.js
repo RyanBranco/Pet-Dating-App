@@ -46,11 +46,6 @@ function addPost(req, res) {
         if (err) {
             res.status(500).json({ error: true, Message: err });
         } else {
-            s3bucket.listObjectsV2({Bucket: "pet-dating"}, function(err, data) {
-                console.log(data)
-            })
-            console.log("V_____________V")
-            console.log(req.body)
             const post = new Post(req.body);
             post.save((err, post) => {
                 if (err) return res.redirect('/post')

@@ -6,10 +6,11 @@
     <main id="content">
         <div class="page">
             <h1><%= user.name %>'s feed:</h1>
-            <% for(let i = posts.length - 1; i >= 0; i-- ) { %>
-                <% let postId = posts[i]._id %> 
+            <% for(let i = posts.length - 1; i >= 0; i--) { %>
+                <% let postId = posts[i]._id %>
+                <% let awsURL = "https://pet-dating.s3-us-west-1.amazonaws.com/" %>
                 <div class="postCard" id="viewPost">
-                    <img class="storyPic" src="<%= posts[i].attatchment %>">
+                    <img class="storyPic" src="<%= awsURL + posts[i].fileId %>">
                     <img class="profilePicSmall" src="<%= posts[i].user.avatar %>"> <p class="userInfo"><%= posts[i].user.name %> <small>about</small> <%= posts[i].pet %>: </p></p>
                     <p class="userStory"><%= posts[i].content %></p>
                     <hr>
