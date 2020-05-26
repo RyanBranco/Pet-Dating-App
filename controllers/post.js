@@ -30,29 +30,37 @@ function newPost(req, res) {
 }
 
 function addPost(req, res) {
-    req.file.originalname = ID() + "." + getExtention(req.file.originalname);
-    req.body.fileId = req.file.originalname;
-    const file = req.file;
-    
-    const params = {
-        Bucket: process.env.AWS_BUCKET_NAME,
-        Key: file.originalname,
-        Body: file.buffer,
-        ContentType: file.mimetype,
-        ACL: "public-read"
-    };
-    
-    s3bucket.upload(params, function(err, data) {
-        if (err) {
-            res.status(500).json({ error: true, Message: err });
-        } else {
-            const post = new Post(req.body);
-            post.save((err, post) => {
-                if (err) return res.redirect('/post')
-                res.redirect('/matcher')
-            })
-        }
-    });
+    if (req.file) {
+        req.file.originalname = ID() + "." + getExtention(req.file.originalname);
+        req.body.fileId = req.file.originalname;
+        const file = req.file;   
+
+        const params = {
+            Bucket: process.env.AWS_BUCKET_NAME,
+            Key: file.originalname,
+            Body: file.buffer,
+            ContentType: file.mimetype,
+            ACL: "public-read"
+        };
+
+        s3bucket.upload(params, function(err, data) {
+            if (err) {
+                res.status(500).json({ error: true, Message: err });
+            } else {
+                const post = new Post(req.body);
+                post.save((err, post) => {
+                    if (err) return res.redirect('/post')
+                    res.redirect('/matcher')
+                })
+            }
+        });
+    } else {
+        const post = new Post(req.body);
+        post.save((err, post) => {
+            if (err) return res.redirect('/post')
+            res.redirect('/matcher')
+        })
+    }
 }
 
 function viewPost(req, res) {

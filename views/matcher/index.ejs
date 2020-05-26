@@ -9,11 +9,14 @@
                 <% let postId = posts[i]._id %>
                 <% let awsURL = "https://pet-dating.s3-us-west-1.amazonaws.com/" %>
                 <div class="postCard" id="viewPost">
-                    <img class="storyPic" src="<%= awsURL + posts[i].fileId %>">
+                    <% if (posts[i].fileId) { %>
+                        <img class="storyPic" src="<%= awsURL + posts[i].fileId %>">
+                    <% } %>
                     <img class="profilePicSmall" src="<%= posts[i].user.avatar %>"> <p class="userInfo"><%= posts[i].user.name %> <small>about</small> <%= posts[i].pet %>: </p></p>
                     <p class="userStory"><%= posts[i].content %></p>
                     <hr>
-                    <a class="actions" href="/post/view/<%= postId %>" id="viewC">View Comments</a>                </div>
+                    <a class="actions" href="/post/view/<%= postId %>" id="viewC">View Comments</a>
+                </div>
             <% } %> 
         </div>
     </main>
