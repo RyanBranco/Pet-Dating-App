@@ -36,7 +36,7 @@ function addPost(req, res) {
         const file = req.file;   
 
         const params = {
-            Bucket: process.env.AWS_BUCKET_NAME,
+            Bucket: "pet-dating",
             Key: file.originalname,
             Body: file.buffer,
             ContentType: file.mimetype,
