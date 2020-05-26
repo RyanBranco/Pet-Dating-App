@@ -24,6 +24,6 @@ Screenshots:
 
 ![landing page](Screenshots/petmatcher1.png)
 ![home page](Screenshots/petmatcher2.png)
-![pet's page](Screenshots/petmatcher3.png)
-![my posts](Screenshots/petmatcher4.png)
-![new post](Screenshots/petmatcher5.png)
+![pet's page](Screenshots/petmatcherthree.png)
+![my posts](Screenshots/petmatcherfour.png)
+![new post](Screenshots/petmatcherfive.png)
