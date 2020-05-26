@@ -15,7 +15,6 @@ Add all of your pets to your pet list and begin socializing with other people an
     * Add messaging
     * You can click on a user and view their profile and pets
     * Likes and dislikes
-    * Implement users uploading pictures
 
 [Trello Board](https://trello.com/b/jm3l5SHd/project-2-planning)
 
