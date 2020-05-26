@@ -22,8 +22,8 @@ Demo the app: [Pet Matcher](https://pet-datting-app.herokuapp.com/)
 
 Screenshots:
 
-![pet matcher landing page](Screenshots/patmatcher1.png)
-![alt text](Screenshots/petmather2.png)
-![alt text](Screenshots/petmatcher3.png)
-![alt text](Screenshots/petmatcher4.png)
-![alt text](Screenshots/petmatcher5.png)
+![landing page](Screenshots/patmatcher1.png)
+![home page](Screenshots/petmacther2.png)
+![pet's page](Screenshots/petmatcher3.png)
+![my posts](Screenshots/petmatcher4.png)
+![new post](Screenshots/petmatcher5.png)
