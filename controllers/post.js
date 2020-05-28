@@ -20,7 +20,8 @@ module.exports = {
     newPost,
     addPost,
     viewPost,
-    comment
+    comment,
+    react
 }
 
 function newPost(req, res) {
@@ -84,4 +85,8 @@ function comment(req, res) {
         })
     })
 
+}
+
+function react(req, res) {
+    console.log(req.params.id)
 }
