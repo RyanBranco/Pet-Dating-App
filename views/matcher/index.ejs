@@ -15,7 +15,15 @@
                     <img class="profilePicSmall" src="<%= posts[i].user.avatar %>"> <p class="userInfo"><%= posts[i].user.name %> <small>about</small> <%= posts[i].pet %>: </p></p>
                     <p class="userStory"><%= posts[i].content %></p>
                     <hr>
-                    <a class="actions" href="/post/view/<%= postId %>" id="viewC">View Comments</a>
+                    <div class="actions">
+                        <div class="reaction-container">
+                            <div class="reaction"><p>😸</p></div>
+                            <div class="reaction"><p>😹</p></div>
+                            <div class="reaction"><p>😻</p></div>
+                            <div class="reaction"><p>😿</p></div>
+                        </div>
+                        <a href="/post/view/<%= postId %>" id="viewC">View Comments</a>
+                    </div>
                 </div>
             <% } %> 
         </div>
