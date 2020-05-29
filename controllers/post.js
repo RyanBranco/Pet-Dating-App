@@ -84,9 +84,29 @@ function comment(req, res) {
             res.redirect(`/post/view/${req.params.id}`)
         })
     })
-
 }
 
 function react(req, res) {
-    console.log(req.params.id)
+    Post.findById((req.params.id), (err, post) => {
+        switch (req.params.reaction) {
+            case "smile":
+                console.log("smile")
+                post.smile++
+                break;
+            case "love":
+                console.log("love")
+                post.love++
+                break;
+            case "laugh":
+                post.laugh++
+                break;
+            case "cry":
+                post.cry++
+                break;
+        }
+        post.save((err) => {
+            if (err) return console.log(err);
+            console.log("reacted!")
+        })
+    })
 }

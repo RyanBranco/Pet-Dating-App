@@ -14,8 +14,10 @@ const postSchema = new Schema ({
     fileId: String,
     pet: String,
     content: {type: String, required: true},
-    likes: {type: Number, defualt: 0},
-    dislikes: {type: Number, defualt: 0},
+    smile: {type: Number, default: 0},
+    love: {type: Number, default: 0},
+    laugh: {type: Number, default: 0},
+    cry: {type: Number, default: 0},
     comments: [commentSchema]
 }, {
     timestamps: true

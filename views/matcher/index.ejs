@@ -18,10 +18,10 @@
                         <hr>
                         <div class="actions">
                             <div class="reaction-container">
-                                <span class="reaction"><form action="/post/react/smile" method="POST"><button class="emoji-button"><a>😸</a></button></form></span>
-                                <span class="reaction"><form action="/post/react/love" method="POST"><button class="emoji-button"><a>😻</a></button></form></span>
-                                <span class="reaction"><form action="/post/react/laugh" method="POST"><button class="emoji-button"><a>😹</a></button></form></span>
-                                <span class="reaction"><form action="/post/react/cry" method="POST"><button class="emoji-button"><a>😿</a></button></form></span>
+                                <span class="reaction"><form action="/post/react/<%= postId %>/smile?_method=PUT" method="POST"><button class="emoji-button"><a>😸</a></button></form></span>
+                                <span class="reaction"><form action="/post/react/<%= postId %>/love?_method=PUT" method="POST"><button class="emoji-button"><a>😻</a></button></form></span>
+                                <span class="reaction"><form action="/post/react/<%= postId %>/laugh?_method=PUT" method="POST"><button class="emoji-button"><a>😹</a></button></form></span>
+                                <span class="reaction"><form action="/post/react/<%= postId %>/cry?_method=PUT" method="POST"><button class="emoji-button"><a>😿</a></button></form></span>
                             </div>
                             <a href="/post/view/<%= postId %>" id="viewC">View Comments</a>
                         </div>
