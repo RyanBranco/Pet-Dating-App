@@ -90,11 +90,9 @@ function react(req, res) {
     Post.findById((req.params.id), (err, post) => {
         switch (req.params.reaction) {
             case "smile":
-                console.log("smile")
                 post.smile++
                 break;
             case "love":
-                console.log("love")
                 post.love++
                 break;
             case "laugh":
@@ -106,7 +104,6 @@ function react(req, res) {
         }
         post.save((err) => {
             if (err) return console.log(err);
-            console.log("reacted!")
         })
     })
 }

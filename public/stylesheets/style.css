@@ -275,10 +275,11 @@ select {
   top: 4px;
 }
 
-
+.emoji-button:hover {
+  cursor: pointer;
+}
 
 .reaction:hover {
-  cursor: pointer;
   background-color: rgba(0, 119, 255, 0.938);
 }
 
