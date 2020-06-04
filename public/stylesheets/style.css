@@ -22,19 +22,6 @@ header {
   box-shadow: 0px 0px 3px 0px black;
 }
 
-#landingHeader {
-  height: 9vh;
-}
-
-#landingHeader h1 {
-  position: absolute;
-  font-family: "spartan";
-  top: 20px;
-  margin: auto;
-  margin-left: 20px;
-  color: white;
-}
-
 h1 {
  font-family: "karla";
  font-weight: 100;
@@ -64,7 +51,7 @@ h1 {
   font-size: 32px;
 }
 
-#landing-text {
+.landing-text {
   font-weight: 60;
   margin-left: 25px;
   margin-right: 25px;
@@ -73,13 +60,14 @@ h1 {
 
 #loginBox button {
   margin: auto;
-  border-radius: 1px;
+  border-radius: 2px;
   display: flex;
-  flex-direction: row;
-  color: gray;
-  border-color: grey;
+  background-color: white;
+  color: grey;
+  border: 1px solid grey;
   font-size: 17px;
   margin-bottom: 20px;
+  outline: none;
 }
 
 #loginBox button img {

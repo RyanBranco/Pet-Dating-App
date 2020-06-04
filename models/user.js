@@ -16,7 +16,7 @@ const userSchema = new Schema({
     email: {type: String, required: true},
     avatar: String,
     pets: [petsSchema],
-    googleId: String
+    googleId: String,
 }, {
     timestamps: true
 });

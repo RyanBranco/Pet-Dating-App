@@ -2,18 +2,16 @@
 <html>
   <%- include("partials/head") %> 
   <body>
-    <header id="landingHeader">
-      <h1>Pet Matcher &hearts;</h1>
-    </header>
     <main>
       <img src="/images/pet-matcher-logo.png" alt="pet-matcher-logo" id="logo">
       <div id="loginBox">
-        <h2>Welcome to Pet Matcher!</h2>
-        <p id="landing-text">Pet Matcher is a social platform for all of your pets. Post and talk about your pets. Read, comment, and like other peoples pets. </p>
+        <h2>Welcome to Pet Matcher</h2>
+        <p class="landing-text">Pet Matcher is a social platform for all of your pets.</p>
+        <p class="landing-text">Log-in with google to continue with the web version, or download the app here.</p>
         <form action="/auth/google">
           <button type="submit">
             <img src="/images/Google_logo.png">
-            <p>Login using google &#8250;</p>
+            <p>Login using google <span class="arrow">&#8250;</span></p>
           </button>
         </form>
       </div>
