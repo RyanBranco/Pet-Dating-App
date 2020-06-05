@@ -50,16 +50,24 @@ function addPost(req, res) {
             } else {
                 const post = new Post(req.body);
                 post.save((err, post) => {
-                    if (err) return res.redirect('/post')
-                    res.redirect('/matcher')
+                    if (err) return res.redirect('/post');
+                    req.user.posts.push(post);
+                    req.user.save((err) => {
+                        if (err) return res.redirect('/post');
+                        res.redirect('/matcher')
+                    })
                 })
             }
         });
     } else {
         const post = new Post(req.body);
         post.save((err, post) => {
-            if (err) return res.redirect('/post')
-            res.redirect('/matcher')
+            if (err) return res.redirect('/post');
+            req.user.posts.push(post);
+            req.user.save((err) => {
+                if (err) return res.redirect('/post');
+                res.redirect('/matcher')
+            })
         })
     }
 }
@@ -79,9 +87,13 @@ function comment(req, res) {
     Post.findById((req.params.id), (err, post) => {
         req.body.user = req.user;
         post.comments.push(req.body);
+        req.user.commented.push(post);
         post.save((err, p) => {
             if (err) return console.log(err);
-            res.redirect(`/post/view/${req.params.id}`)
+        })
+        req.user.save((err) => {
+            if (err) return console.log(err);
+            res.redirect(`/post/view/${req.params.id}`);
         })
     })
 }

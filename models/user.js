@@ -6,7 +6,8 @@ const petsSchema = new Schema ({
     name: {type: String, required: true},
     type: {type: String, required: true},
     gender: {type: String, required: true},
-    sexuality: {type: String, required: true}
+    sexuality: {type: String, required: true},
+    followers: [{type: Schema.Types.ObjectId, ref: "User"}]
 }, {
     timestamps: true
 });
@@ -17,7 +18,6 @@ const userSchema = new Schema({
     avatar: String,
     pets: [petsSchema],
     googleId: String,
-    followers: [{type: Schema.Types.ObjectId, ref: "User"}],
     posts: [{type: Schema.Types.ObjectId, ref: "Post"}],
     commented: [{type: Schema.Types.ObjectId, ref: "Post"}],
     smiles: [{type: Schema.Types.ObjectId, ref: "Post"}],
