@@ -17,7 +17,7 @@ const userSchema = new Schema({
     name: {type: String, required: true},
     email: {type: String, required: true},
     avatar: String,
-    pets: [petsSchema],
+    pets: [{type: Schema.Types.ObjectId, ref: "Pet"}],
     googleId: String,
     posts: [{type: Schema.Types.ObjectId, ref: "Post"}],
     commented: [{type: Schema.Types.ObjectId, ref: "Post"}],

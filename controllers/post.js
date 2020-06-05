@@ -1,5 +1,4 @@
 const Post = require('../models/post');
-const User = require('../models/user');
 const AWS = require("aws-sdk");
 
 let s3bucket = new AWS.S3({

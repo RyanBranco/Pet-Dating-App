@@ -1,4 +1,6 @@
 const Post = require("../models/post");
+const Pet = require("../models/Pet");
+const User = require("../models/user");
 const AWS = require("aws-sdk");
 
 let s3bucket = new AWS.S3({
@@ -35,14 +37,19 @@ function show(req, res) {
 }
 
 function showPets(req, res) {
-    res.render('user/userPets', {
-        user: req.user,
-        selected: "selected"
+    User.findById(req.user._id).populate('pets').exec((err, user) => {
+        res.render('user/userPets', {
+            user: req.user,
+            pet: user.pets,
+            selected: "selected"
+        })
     })
 }
 
 function showPetForm(req, res) {
-    res.render('user/showPetForm')
+    res.render('user/showPetForm', {
+        user: req.user
+    })
 }
 
 function addPet(req, res) {
@@ -63,18 +70,28 @@ function addPet(req, res) {
             if (err) {
                 res.status(500).json({ error: true, Message: err });
             } else {
-                req.user.pets.push(req.body);
-                req.user.save((err) => {
+                const pet = new Pet(req.body);
+                pet.owner = req.user
+                pet.save((err, pet) => {
                     if (err) return res.redirect('/user/pets/new');
-                    res.redirect('/user/pets');
+                    req.user.pets.push(pet);
+                    req.user.save((err) => {
+                        if (err) return console.log(err)
+                        res.redirect('/user/pets');
+                    })
                 })
             }
         });
     } else {
-        req.user.pets.push(req.body);
-        req.user.save((err) => {
+        const pet = new Pet(req.body);
+        pet.owner = req.user
+        pet.save((err, pet) => {
             if (err) return res.redirect('/user/pets/new');
-            res.redirect('/user/pets');
+            req.user.pets.push(pet);
+            req.user.save((err) => {
+                if (err) return console.log(err)
+                res.redirect('/user/pets');
+            })
         })
     }
 }

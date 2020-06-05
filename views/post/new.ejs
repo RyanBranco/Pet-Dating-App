@@ -15,7 +15,7 @@
                     <label>Pet:
                         <select name="pet" id="postPetSelect">
                             <% user.pets.forEach((pet) => { %>
-                                <option value="<%= pet.name %>"><%= pet.name %></option>
+                                <option value="<%= pet._id %>"><%= pet.name %></option>
                             <% }) %> 
                         </select> 
                     </label>

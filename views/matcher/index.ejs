@@ -15,7 +15,7 @@
                         <img class="storyPic" src="<%= awsURL + posts[i].fileId %>">
                     <% } %>
                     <div class="post-info">
-                        <img class="profilePicSmall" src="<%= posts[i].user.avatar %>"> <p class="userInfo"><%= posts[i].user.name %> <small>about</small> <%= posts[i].pet %>: </p></p>
+                        <img class="profilePicSmall" src="<%= posts[i].user.avatar %>"> <p class="userInfo"><%= posts[i].user.name %> <small>about</small> <img class="profilePicSmall" src="<%= posts[i].user.pet %>"> <%= posts[i].pet %>: </p></p>
                         <p class="userStory"><%= posts[i].content %></p>
                         <hr>
                         <div class="actions">
