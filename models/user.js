@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const petsSchema = new Schema ({
-    avatar: {type: String, default: "https://render.fineartamerica.com/images/rendered/default/print/8.000/8.000/break/images-medium-5/round-dog-and-cat-icon-robinolimb.jpg"},
+    fileId: {type: String, default: ""},
     name: {type: String, required: true},
     type: {type: String, required: true},
     gender: {type: String, required: true},
@@ -17,6 +17,13 @@ const userSchema = new Schema({
     avatar: String,
     pets: [petsSchema],
     googleId: String,
+    followers: [{type: Schema.Types.ObjectId, ref: "User"}],
+    posts: [{type: Schema.Types.ObjectId, ref: "Post"}],
+    commented: [{type: Schema.Types.ObjectId, ref: "Post"}],
+    smiles: [{type: Schema.Types.ObjectId, ref: "Post"}],
+    laughs: [{type: Schema.Types.ObjectId, ref: "Post"}],
+    loves: [{type: Schema.Types.ObjectId, ref: "Post"}],
+    crys: [{type: Schema.Types.ObjectId, ref: "Post"}]
 }, {
     timestamps: true
 });

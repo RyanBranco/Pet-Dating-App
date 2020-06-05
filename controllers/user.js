@@ -38,6 +38,7 @@ function showPetForm(req, res) {
 }
 
 function addPet(req, res) {
+    console.log("request", req.body)
     req.user.pets.push(req.body);
     req.user.save((err) => {
         if (err) return res.redirect('/user/pets/new');

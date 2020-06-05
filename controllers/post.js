@@ -90,19 +90,26 @@ function react(req, res, next) {
     Post.findById((req.params.id), (err, post) => {
         switch (req.params.reaction) {
             case "smile":
-                post.smile++
+                post.smile.push(req.user);
+                req.user.smiles.push(post);
                 break;
             case "love":
-                post.love++
+                post.love.push(req.user);
+                req.user.loves.push(post);
                 break;
             case "laugh":
-                post.laugh++
+                post.laugh.push(req.user);
+                req.user.laughs.push(post);
                 break;
             case "cry":
-                post.cry++
+                post.cry.push(req.user);
+                req.user.crys.push(post);
                 break;
         }
         post.save((err) => {
+            if (err) return console.log(err);
+        })
+        req.user.save((err) => {
             if (err) return console.log(err);
             res.redirect("/matcher")
         })
