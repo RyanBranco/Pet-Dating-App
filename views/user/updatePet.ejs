@@ -4,16 +4,17 @@
 <body>
     <%- include("../partials/header") %>
     <main id="content">
+        <% let awsURL = "https://pet-dating.s3-us-west-1.amazonaws.com/" %>
         <div  class="page">
             <div class="card">
                 <form action="/user/pets/delete/<%= id %>?_method=DELETE" method="POST">
                     <input class="delete" type="submit" value="DELETE PET">
                 </form>
-                <form action="/user/pets/update/<%= id %>?_method=PUT" method="POST">
-                    <img src="<%= pet.avatar %>" ><h1 class="petName"><%= pet.name %></h1>
+                <form action="/user/pets/update/<%= id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                    <img src="<%= awsURL + pet.fileId %>" class="largeProfilePic"><h1 class="petName"><%= pet.name %></h1>
                     <hr>
                     <label class="labelNonSelect">Avatar:
-                        <input type="file" name="avatar" value="<%= pet.avatar %>" class="chooseFile">
+                        <input type="file" name="attatchment" class="chooseFile">
                     </label>
                     <label class="labelNonSelect">Name:
                         <input name="name" value="<%= pet.name %>">
@@ -68,6 +69,7 @@
                             <option value="pansexual" <%- pet.sexuality === "pansexual" ? "selected" : "" %>>Pansexual</option>
                         </select>
                     </label>
+                    <input type="hidden" name="fileId">
                     <input class="edit" type="submit" value="Edit Pet">
                 </form>
             </div>

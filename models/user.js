@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const petsSchema = new Schema ({
-    fileId: {type: String, default: ""},
+    attatchment: String,
+    fileId: String,
     name: {type: String, required: true},
     type: {type: String, required: true},
     gender: {type: String, required: true},

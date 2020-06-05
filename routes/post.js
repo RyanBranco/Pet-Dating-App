@@ -9,7 +9,7 @@ const upload = multer({ storage: storage });
 router.get('/', isLoggedIn, postCtrl.newPost);
 router.get('/view/:id', isLoggedIn, postCtrl.viewPost)
 
-router.post('/add', isLoggedIn, upload.single("attatchment"),postCtrl.addPost);
+router.post('/add', isLoggedIn, upload.single("attatchment"), postCtrl.addPost);
 router.post('/view/:id/comment', isLoggedIn, postCtrl.comment);
 
 router.put('/react/:id/:reaction', isLoggedIn, postCtrl.react)

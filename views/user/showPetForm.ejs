@@ -7,9 +7,9 @@
         <div class="page">
             <h1>New Pet</h1>
             <div class="card">
-                <form action="/user/pets/new/add" method="POST">
+                <form action="/user/pets/new/add" method="POST" enctype="multipart/form-data">
                     <label class="labelNonSelect">Avatar:
-                        <input type="file" name="avatar" class="chooseFile">
+                        <input type="file" name="attatchment" class="chooseFile">
                     </label>
                     <label class="labelNonSelect">Name:
                         <input name="name">
@@ -64,7 +64,7 @@
                             <option value="pansexual">Pansexual</option>
                         </select>
                     </label>
-                    <input type="hidden" name="fileId" value="">
+                    <input type="hidden" name="fileId" value="defaultpetpicture.png">
                     <input type="submit" value="Add Pet" class="edit">
                 </form>
             </div>
