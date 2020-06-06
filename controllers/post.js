@@ -1,4 +1,5 @@
 const Post = require('../models/post');
+const User = require('../models/user');
 const AWS = require("aws-sdk");
 
 let s3bucket = new AWS.S3({
@@ -24,8 +25,10 @@ module.exports = {
 }
 
 function newPost(req, res) {
-    res.render('post/new', {
-        user: req.user
+    User.findById(req.user._id).populate('pets').exec((err, user) => {
+        res.render('post/new', {
+            user
+        })
     })
 }
 

@@ -9,10 +9,10 @@ const commentSchema = new Schema({
 });
 
 const postSchema = new Schema ({
-    user: {type: Schema.Types.ObjectId, ref: "User"},
     attatchment: String,
     fileId: String,
-    pet: String,
+    pet: {type: Schema.Types.ObjectId, ref: "Pet"},
+    user: {type: Schema.Types.ObjectId, ref: "User"},
     content: {type: String, required: true},
     smile: [{type: Schema.Types.ObjectId, ref: "User"}],
     love: [{type: Schema.Types.ObjectId, ref: "User"}],

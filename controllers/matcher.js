@@ -7,7 +7,7 @@ module.exports = {
 }
 
 function index(req, res) {
-    Post.find({}).populate('user').exec((err, posts) => {
+    Post.find({}).populate('user').populate('pet').exec((err, posts) => {
         res.render("matcher/index", {
             posts,
             user: req.user
