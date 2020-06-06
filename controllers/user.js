@@ -114,9 +114,11 @@ function updateUser(req, res) {
 }
 
 function updatePet(req, res) {
-    res.render('user/updatePet', {
-        pet: req.user.pets[req.params.id],
-        id: req.params.id
+    User.findById(req.user._id).populate('pets').exec((err, user) => {
+        res.render('user/updatePet', {
+            pet: user.pets[req.params.id],
+            id: req.params.id,
+        })
     })
 }
 
@@ -138,40 +140,43 @@ function changePet(req, res) {
             if (err) {
                 res.status(500).json({ error: true, Message: err });
             } else {
-                const pet = req.user.pets[req.params.id];
-                pet.fileId = req.body.fileId;
-                pet.name = req.body.name;
-                pet.type = req.body.type;
-                pet.gender = req.body.gender;
-                pet.sexuality = req.body.sexuality;
-                req.user.save((err) => {
-                    if (err) return console.log(err);
-                    res.redirect("/user/pets");
-                });
+                User.findById(req.user._id).populate('pets').exec((err, user) => {
+                    const pet = user.pets[req.params.id];
+                    pet.fileId = req.body.fileId;
+                    pet.name = req.body.name;
+                    pet.type = req.body.type;
+                    pet.gender = req.body.gender;
+                    pet.sexuality = req.body.sexuality;
+                    pet.save((err) => {
+                        if (err) return console.log(err);
+                        res.redirect("/user/pets");
+                    });
+                })
             }
         });
     } else {
-        const pet = req.user.pets[req.params.id];
-        pet.name = req.body.name;
-        pet.type = req.body.type;
-        pet.gender = req.body.gender;
-        pet.sexuality = req.body.sexuality;
-        req.user.save((err) => {
-            if (err) return console.log(err);
-            res.redirect("/user/pets");
-        });
+        User.findById(req.user._id).populate('pets').exec((err, user) => {
+            const pet = user.pets[req.params.id];
+            pet.name = req.body.name;
+            pet.type = req.body.type;
+            pet.gender = req.body.gender;
+            pet.sexuality = req.body.sexuality;
+            pet.save((err) => {
+                if (err) return console.log(err);
+                res.redirect("/user/pets");
+            });
+        })
     }
 }
 
 function deletePet(req, res) {
-    const pet = req.user.pets[req.params.id];
-    pet.remove((err) => {
-        if (err) return res.redirect(`/user/pets/update/${req.params.id}`)
-        req.user.save((err) => {
+    User.findById(req.user._id).populate('pets').exec((err, user) => {
+        const pet = user.pets[req.params.id];
+        pet.remove((err) => {
             if (err) return res.redirect(`/user/pets/update/${req.params.id}`)
             res.redirect('/user/pets')
-        })
-    });
+        });
+    })
 }
 
 function deletePost(req, res) {

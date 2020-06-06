@@ -13,7 +13,7 @@
                 <form action="/user/pets/update/<%= id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                     <img src="<%= awsURL + pet.fileId %>" class="largeProfilePic"><h1 class="petName"><%= pet.name %></h1>
                     <hr>
-                    <label class="labelNonSelect">Avatar:
+                    <label class="labelNonSelect">Update Avatar:
                         <input type="file" name="attatchment" class="chooseFile">
                     </label>
                     <label class="labelNonSelect">Name:

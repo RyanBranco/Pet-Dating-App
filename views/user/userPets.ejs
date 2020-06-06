@@ -11,7 +11,12 @@
             <a class="anchor" href="/user/pets/new"><i class="fas fa-paw fa-lg"></i><i class="fas fa-plus fa-lg" id="addPetPlus"></i></a>
             <ul>
                 <% pet.forEach((pet, index) => { %>
-                    <a href="/user/pets/update/<%= index %>"><li><h3><img id="profilePic" src="<%= awsURL + pet.fileId %>" class="profilePic"> <%= pet.name %></h3> <p class="petItem"> Traits:</p> <p class="petItem"><%= pet.type %>, <%= pet.gender %>, <%= pet.sexuality %></p></a></li><p id="arrow"></p>
+                    <a href="/user/pets/update/<%= index %>">
+                        <li>
+                            <h3><img id="profilePic" src="<%= awsURL + pet.fileId %>" class="profilePic"> <%= pet.name %></h3>
+                            <p class="petItem"> Traits:</p> <p class="petItem"><%= pet.type %>, <%= pet.gender %>, <%= pet.sexuality %></p>
+                        </li>
+                    </a>
                 <% }) %> 
             </ul>
         </div>
