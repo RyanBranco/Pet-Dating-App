@@ -271,6 +271,10 @@ select {
   background-color: rgba(0, 119, 255, 0.938);
 }
 
+.smileReacted,.loveReacted,.laughReacted,.cryReacted {
+  background-color: rgba(0, 119, 255, 0.938);
+}
+
 .yourpost {
   opacity: .5;
 }
@@ -280,6 +284,8 @@ select {
   cursor: none;
   pointer-events: none;
 }
+
+
 
 .emoji-button {
   background: transparent;

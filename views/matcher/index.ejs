@@ -5,7 +5,31 @@
     <%- include("../partials/header") %>
     <main id="content">
         <div class="page">
-            <% for(let i = posts.length - 1; i >= 0; i--) { %>
+            <% for (let i = posts.length - 1; i >= 0; i--) { %>
+                <% let smileReacted = "" %>
+                <% for (let j = 0; j < posts[i].smile.length; j++) { %>
+                    <% if (posts[i].smile[j] == user.id) { %>
+                        <% smileReacted = "smileReacted" %>
+                    <% } %>
+                <% } %>
+                <% let loveReacted = "" %>
+                <% for (let j = 0; j < posts[i].love.length; j++) { %>
+                    <% if (posts[i].love[j] == user.id) { %>
+                       <% loveReacted = "loveReacted" %>
+                    <% } %>
+                <% } %>
+                <% let laughReacted = "" %>
+                <% for (let j = 0; j < posts[i].laugh.length; j++) { %>
+                    <% if (posts[i].laugh[j] == user.id) { %>
+                       <% laughReacted = "laughReacted" %>
+                    <% } %>
+                <% } %>
+                <% let cryReacted = "" %>
+                <% for (let j = 0; j < posts[i].cry.length; j++) { %>
+                    <% if (posts[i].cry[j] == user.id) { %>
+                       <% cryReacted = "cryReacted" %>
+                    <% } %>
+                <% } %>
                 <% let commentLength = posts[i].comments.length %>
                 <% let yourpost %>
                 <% let postId = posts[i]._id %>
@@ -20,27 +44,27 @@
                         <hr>
                         <div class="actions">
                             <div class="reaction-container">
-                                <% if (posts[i].user.name === user.name) { %>
+                                <% if (posts[i].user.id === user.id) { %>
                                     <% yourpost = "yourpost" %>
                                     <% } else { %>
                                     <% yourpost = "" %>
                                 <% }%>
-                                <span class="reaction <%= yourpost %>">
+                                <span class="reaction <%= yourpost %> <%= smileReacted %>">
                                     <form action="/post/react/<%= postId %>/smile?_method=PUT" method="POST">
                                         <button class="emoji-button"><a>😸</a></button>
                                     </form>
                                 </span>
-                                <span class="reaction <%= yourpost %>">
+                                <span class="reaction <%= yourpost %> <%= loveReacted %>">
                                     <form action="/post/react/<%= postId %>/love?_method=PUT" method="POST">
                                         <button class="emoji-button"><a>😻</a></button>
                                     </form>
                                 </span>
-                                <span class="reaction <%= yourpost %>">
+                                <span class="reaction <%= yourpost %> <%= laughReacted %>">
                                     <form action="/post/react/<%= postId %>/laugh?_method=PUT" method="POST">
                                         <button class="emoji-button"><a>😹</a></button>
                                     </form>
                                 </span>
-                                <span class="reaction <%= yourpost %>">
+                                <span class="reaction <%= yourpost %> <%= cryReacted %>">
                                     <form action="/post/react/<%= postId %>/cry?_method=PUT" method="POST">
                                         <button class="emoji-button"><a>😿</a></button>
                                     </form>
