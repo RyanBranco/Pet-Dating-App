@@ -13,9 +13,3 @@ window.onunload = function() {
 window.onload = function () {
     page.scrollTop = localStorage.getItem("scrollPosition");
 }
-
-for (let i = 0; i < reactions.length; i++) {
-    reactions[i].addEventListener("click", function(e) {    
-
-    })
-}

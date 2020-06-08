@@ -275,11 +275,11 @@ select {
   background-color: rgba(0, 119, 255, 0.938);
 }
 
-.yourpost {
+.userPost {
   opacity: .5;
 }
 
-.yourpost:hover {
+.userPost:hover {
   background-color: transparent;
   cursor: none;
   pointer-events: none;
