@@ -104,20 +104,40 @@ function react(req, res, next) {
     Post.findById((req.params.id), (err, post) => {
         switch (req.params.reaction) {
             case "smile":
-                post.smile.push(req.user);
-                req.user.smiles.push(post);
+                if (req.user.smiles.indexOf(post.id) !== -1) {
+                    req.user.smiles.splice(req.user.smiles.indexOf(post.id), 1)
+                    post.smile.splice(post.smile.indexOf(req.user.id), 1)
+                } else {
+                    post.smile.push(req.user);
+                    req.user.smiles.push(post);
+                }
                 break;
             case "love":
-                post.love.push(req.user);
-                req.user.loves.push(post);
+                if (req.user.loves.indexOf(post.id) !== -1) {
+                    req.user.loves.splice(req.user.loves.indexOf(post.id), 1)
+                    post.love.splice(post.love.indexOf(req.user.id), 1)
+                } else {
+                    post.love.push(req.user);
+                    req.user.loves.push(post);
+                }
                 break;
             case "laugh":
-                post.laugh.push(req.user);
-                req.user.laughs.push(post);
+                if (req.user.laughs.indexOf(post.id) !== -1) {
+                    req.user.laughs.splice(req.user.loves.indexOf(post.id), 1)
+                    post.laugh.splice(post.laugh.indexOf(req.user.id), 1)
+                } else {
+                    post.laugh.push(req.user);
+                    req.user.laughs.push(post);
+                }
                 break;
             case "cry":
-                post.cry.push(req.user);
-                req.user.crys.push(post);
+                if (req.user.crys.indexOf(post.id) !== -1) {
+                    req.user.crys.splice(req.user.crys.indexOf(post.id), 1)
+                    post.cry.splice(post.cry.indexOf(req.user.id), 1)
+                } else {
+                    post.cry.push(req.user);
+                    req.user.crys.push(post);
+                }
                 break;
         }
         post.save((err) => {
