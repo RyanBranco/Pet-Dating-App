@@ -2,83 +2,86 @@
 <html lang="en">
 <%- include("../partials/head") %>
 <body>
-    <%- include("../partials/header") %>
-    <main id="content">
-        <div class="page">
-            <% for (let i = posts.length - 1; i >= 0; i--) { %>
-                <% let smileReacted = "" %>
-                <% for (let j = 0; j < posts[i].smile.length; j++) { %>
-                    <% if (posts[i].smile[j] == user.id) { %>
-                        <% smileReacted = "smileReacted" %>
-                    <% } %>
+    <%- include("../partials/navbars") %>
+    <main>
+        <% for (let i = posts.length - 1; i >= 0; i--) { %>
+            <% let userPost %>
+            <% let postId = posts[i]._id %>
+            <% let awsURL = "https://pet-dating.s3-us-west-1.amazonaws.com/" %>
+            <% let smileReacted = "" %>
+            <% let loveReacted = "" %>
+            <% let laughReacted = "" %>
+            <% let cryReacted = "" %>
+            <% for (let j = 0; j < posts[i].smile.length; j++) { %>
+                <% if (posts[i].smile[j] == user.id) { %>
+                    <% smileReacted = "smileReacted" %>
                 <% } %>
-                <% let loveReacted = "" %>
-                <% for (let j = 0; j < posts[i].love.length; j++) { %>
-                    <% if (posts[i].love[j] == user.id) { %>
-                       <% loveReacted = "loveReacted" %>
-                    <% } %>
+            <% } %>
+            <% for (let j = 0; j < posts[i].love.length; j++) { %>
+                <% if (posts[i].love[j] == user.id) { %>
+                    <% loveReacted = "loveReacted" %>
                 <% } %>
-                <% let laughReacted = "" %>
-                <% for (let j = 0; j < posts[i].laugh.length; j++) { %>
-                    <% if (posts[i].laugh[j] == user.id) { %>
-                       <% laughReacted = "laughReacted" %>
-                    <% } %>
+            <% } %>
+            <% for (let j = 0; j < posts[i].laugh.length; j++) { %>
+                <% if (posts[i].laugh[j] == user.id) { %>
+                    <% laughReacted = "laughReacted" %>
                 <% } %>
-                <% let cryReacted = "" %>
-                <% for (let j = 0; j < posts[i].cry.length; j++) { %>
-                    <% if (posts[i].cry[j] == user.id) { %>
-                       <% cryReacted = "cryReacted" %>
-                    <% } %>
+            <% } %>
+            <% for (let j = 0; j < posts[i].cry.length; j++) { %>
+                <% if (posts[i].cry[j] == user.id) { %>
+                    <% cryReacted = "cryReacted" %>
                 <% } %>
-                <% let userPost %>
-                <% let postId = posts[i]._id %>
-                <% let awsURL = "https://pet-dating.s3-us-west-1.amazonaws.com/" %>
-                <div class="postCard" id="viewPost">
-                    <% if (posts[i].fileId) { %>
-                        <img class="storyPic" src="<%= awsURL + posts[i].fileId %>">
-                    <% } %>
-                    <div class="post-info">
-                        <img class="profilePicSmall" src="<%= posts[i].user.avatar %>"> <p class="userInfo"><%= posts[i].user.name %> <small>about</small> <img class="profilePicSmall" src="<%= awsURL + posts[i].pet.fileId %>"> <%= posts[i].pet.name %> <small>the</small> <%= posts[i].pet.type %>: </p></p>
-                        <p class="userStory"><%= posts[i].content %></p>
-                        <hr>
-                        <div class="actions">
-                            <div class="reaction-container">
-                                <% if (posts[i].user.id === user.id) { %>
-                                    <% userPost = "userPost" %>
-                                    <% } else { %>
-                                    <% userPost = "" %>
-                                <% }%>
-                                <span class="reaction <%= userPost %> <%= smileReacted %>">
-                                    <form action="/post/react/<%= postId %>/smile?_method=PUT" method="POST">
-                                        <button class="emoji-button"><a>😸</a></button>
-                                    </form>
-                                    <p><%= posts[i].smile.length %></p>
-                                </span>
-                                <span class="reaction <%= userPost %> <%= loveReacted %>">
-                                    <form action="/post/react/<%= postId %>/love?_method=PUT" method="POST">
-                                        <button class="emoji-button"><a>😻</a></button>
-                                    </form>
-                                    <p><%= posts[i].love.length %></p>
-                                </span>
-                                <span class="reaction <%= userPost %> <%= laughReacted %>">
-                                    <form action="/post/react/<%= postId %>/laugh?_method=PUT" method="POST">
-                                        <button class="emoji-button"><a>😹</a></button>
-                                    </form>
-                                    <p><%= posts[i].laugh.length %></p>
-                                </span>
-                                <span class="reaction <%= userPost %> <%= cryReacted %>">
-                                    <form action="/post/react/<%= postId %>/cry?_method=PUT" method="POST">
-                                        <button class="emoji-button"><a>😿</a></button>
-                                    </form>
-                                    <p><%= posts[i].cry.length %></p>
-                                </span>
-                            </div>
-                            <a href="/post/view/<%= postId %>" id="viewC">View Comments (<%= posts[i].comments.length %>)</a>
+            <% } %>
+            <div class="post-card">
+                <% if (posts[i].fileId) { %>
+                    <img class="post-pic" src="<%= awsURL + posts[i].fileId %>">
+                <% } %>
+                <div class="post-info">
+                    <div class="post-header">
+                        <img class="profile-pic small" src="<%= posts[i].user.avatar %>">
+                        <p><%= posts[i].user.name %> <small>about</small> </p>
+                        <img class="profile-pic small" src="<%= awsURL + posts[i].pet.fileId %>">
+                        <p> <%= posts[i].pet.name %> <small>the</small> <%= posts[i].pet.type %>: </p>
+                    </div>
+                    <p class="post-description"><%= posts[i].content %></p>
+                    <hr>
+                    <div class="post-actions">
+                        <div class="reactions-container">
+                            <% if (posts[i].user.id === user.id) { %>
+                                <% userPost = "user-post" %>
+                                <% } else { %>
+                                <% userPost = "" %>
+                            <% }%>
+                            <span class="reaction <%= userPost %>">
+                                <form action="/post/react/<%= postId %>/smile?_method=PUT" method="POST">
+                                    <button class="emoji-button <%= smileReacted %>"><a>😸</a></button>
+                                </form>
+                                <p><%= posts[i].smile.length %></p>
+                            </span>
+                            <span class="reaction <%= userPost %>">
+                                <form action="/post/react/<%= postId %>/love?_method=PUT" method="POST">
+                                    <button class="emoji-button <%= loveReacted %>"><a>😻</a></button>
+                                </form>
+                                <p><%= posts[i].love.length %></p>
+                            </span>
+                            <span class="reaction <%= userPost %>">
+                                <form action="/post/react/<%= postId %>/laugh?_method=PUT" method="POST">
+                                    <button class="emoji-button <%= laughReacted %>"><a>😹</a></button>
+                                </form>
+                                <p><%= posts[i].laugh.length %></p>
+                            </span>
+                            <span class="reaction <%= userPost %>">
+                                <form action="/post/react/<%= postId %>/cry?_method=PUT" method="POST">
+                                    <button class="emoji-button <%= cryReacted %>"><a>😿</a></button>
+                                </form>
+                                <p><%= posts[i].cry.length %></p>
+                            </span>
                         </div>
+                        <a class="view-comments-action" href="/post/view/<%= postId %>"><i class="fas fa-comment-dots fa-2x"></i> (<%= posts[i].comments.length %>)</a>
                     </div>
                 </div>
-            <% } %> 
-        </div>
+            </div>
+        <% } %> 
     </main>
 </body>
 </html>
