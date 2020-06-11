@@ -2,32 +2,102 @@
 <html lang="en">
 <%- include("../partials/head") %>
 <body>
-    <%- include("../partials/header") %>
-    <main id="content">
-        <div class="page">
-            <div class="postCard" id="viewPost">
-                <img class="storyPic" src="<%= post.attatchment %>">
-                <img class="profilePicSmall" src="<%= post.user.avatar %>"><p class="userInfo"><%= post.user.name %> <small>about</small> <%= post.pet %>: </p>
-                <p class="userStory" id="viewCommentPost"><%= post.content %></p>
+    <%- include("../partials/navbars") %>
+    <main>
+        <% let awsURL = "https://pet-dating.s3-us-west-1.amazonaws.com/" %>
+        <% let smileReacted = "" %>
+        <% let loveReacted = "" %>
+        <% let laughReacted = "" %>
+        <% let cryReacted = "" %>
+        <div class="post-card">
+            <% if (post.fileId) { %>
+                <img class="post-pic" src="<%= awsURL + post.fileId %>">
+            <% } %>
+            <% for (let j = 0; j < post.smile.length; j++) { %>
+                <% if (post.smile[j] == user.id) { %>
+                    <% smileReacted = "smileReacted" %>
+                <% } %>
+            <% } %>
+            <% for (let j = 0; j < post.love.length; j++) { %>
+                <% if (post.love[j] == user.id) { %>
+                    <% loveReacted = "loveReacted" %>
+                <% } %>
+            <% } %>
+            <% for (let j = 0; j < post.laugh.length; j++) { %>
+                <% if (post.laugh[j] == user.id) { %>
+                    <% laughReacted = "laughReacted" %>
+                <% } %>
+            <% } %>
+            <% for (let j = 0; j < post.cry.length; j++) { %>
+                <% if (post.cry[j] == user.id) { %>
+                    <% cryReacted = "cryReacted" %>
+                <% } %>
+            <% } %>
+            <div class="post-info">
+                <div class="post-header">
+                    <img class="profile-pic small" src="<%= post.user.avatar %>">
+                    <p><%= post.user.name %> <small>about</small> </p>
+                    <img class="profile-pic small" src="<%= awsURL + post.pet.fileId %>">
+                    <p> <%= post.pet.name %> <small>the</small> <%= post.pet.type %>: </p>
+                </div>
+                <p class="post-description"><%= post.content %></p>
+                <hr>
+                <div class="post-actions">
+                    <div class="reactions-container">
+                        <% if (post.user.id === user.id) { %>
+                            <% userPost = "user-post" %>
+                            <% } else { %>
+                            <% userPost = "" %>
+                        <% }%>
+                        <span class="reaction <%= userPost %>">
+                            <form action="/post/react/<%= postId %>/smile?_method=PUT" method="POST">
+                                <button class="emoji-button <%= smileReacted %>"><a>😸</a></button>
+                            </form>
+                            <p><%= post.smile.length %></p>
+                        </span>
+                        <span class="reaction <%= userPost %>">
+                            <form action="/post/react/<%= postId %>/love?_method=PUT" method="POST">
+                                <button class="emoji-button <%= loveReacted %>"><a>😻</a></button>
+                            </form>
+                            <p><%= post.love.length %></p>
+                        </span>
+                        <span class="reaction <%= userPost %>">
+                            <form action="/post/react/<%= postId %>/laugh?_method=PUT" method="POST">
+                                <button class="emoji-button <%= laughReacted %>"><a>😹</a></button>
+                            </form>
+                            <p><%= post.laugh.length %></p>
+                        </span>
+                        <span class="reaction <%= userPost %>">
+                            <form action="/post/react/<%= postId %>/cry?_method=PUT" method="POST">
+                                <button class="emoji-button <%= cryReacted %>"><a>😿</a></button>
+                            </form>
+                            <p><%= post.cry.length %></p>
+                        </span>
+                    </div>
+                </div>
             </div>
-            <div id="comment">
-                <img class="profilePic" src="<%= user.avatar %>">
-                <p class="userInfo"><%= user.name %></p>
-                <form action="/post/view/<%= postId %>/comment" method="POST">
-                    <textarea name="content" placeholder="So what do you think?" id="commentBox"></textarea>
-                    <input type="submit" value="Comment" id="commentButton">
-                </form>
-            </div>
-            <br>
-            <hr>
-            <div id="commentsPage">
-                <% post.comments.forEach((comment, index) => { %>
-                    <img src="<%= comment.user.avatar %>" class="profilePicSmall">
-                    <p class="userInfo"><%= comment.user.name %>:</p>
-                    <p id="commentText"><%= comment.content %></p>
-                    <br>
-                <% }) %>
-            </div>
+        </div>
+        <div class="comment-area">
+            <p class="inline-text">What do you think &nbsp; </p>
+            <img class="profile-pic extra-small" src="<%= user.avatar %>">
+            <p class="username"><%= userFirstName %></p>
+            <p class="inline-text">?</p>
+            <form action="/post/view/<%= postId %>/comment" method="POST">
+                <textarea class="comment-box" name="content" rows="6"></textarea>
+                <input class="action-button comment-button" type="submit" value="Comment">
+            </form>
+        </div>
+        <br>
+        <hr>
+        <div class="comments-container">
+            <% post.comments.forEach((comment, index) => { %>
+                <img class="profile-pic small" src="<%= comment.user.avatar %>">
+                <p class="username"><%= comment.user.name %>:</p>
+                <br>
+                <br>
+                <p class="comment-content"><%= comment.content %></p>
+                <br>
+            <% }) %>
         </div>
     </main>
 </body>

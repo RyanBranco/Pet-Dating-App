@@ -12,17 +12,22 @@ html {
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
   font-size: 62.5%;
 }
-
-/*---------- general ----------*/
-
-body {
-  background-color: #fffbf3;
+a {
+  text-decoration: none;
+}
+p {
+  font-size: 3.5vw;
 }
 
 /*---------- hide scrollbar ----------*/
 body::-webkit-scrollbar{
   width: 0;
   background-color: transparent;
+}
+
+/*---------- general ----------*/
+body {
+  background-color: #fffdf7;
 }
 
 main {
@@ -32,6 +37,11 @@ main {
 .profile-pic {
   border-radius: 50px;
   object-fit: cover;
+}
+
+.extra-small {
+  width: 3.5em;
+  height: 3.5em;
 }
 
 .small {
@@ -49,6 +59,32 @@ main {
   height: 9em;
 }
 
+.username {
+  display: inline-block;
+  font-size: 3.5vw;
+}
+
+.action-button {
+  background-color: white;
+  color: rgb(0, 110, 255);
+  border: 1px solid rgb(0, 110, 255);
+  padding: .2em .6em;
+  border-radius: 3px;
+}
+
+.warning-action-button {
+  background-color: white;
+  color: rgb(255, 56, 82);
+  border: 1px solid rgb(255, 56, 82);
+  padding: .2em .6em;
+  border-radius: 3px;
+}
+
+.inline-text {
+  font-size: 3.5vw;
+  display: inline-block;
+}
+
 /*---------- landing page ----------*/
 #landing-logo {
   display: block;
@@ -63,10 +99,9 @@ main {
   width: 85%;
   color: white;
   font-size: 1.25em;
-  text-shadow: 0px 0px 1px black;
   text-align: center;
   border-radius: 3px;
-  background-color: #488dcef3;
+  background-color: #5a96cef3;
   box-shadow: 0px 0px 7px rgba(39, 39, 39, 0.075);
 }
 
@@ -97,7 +132,7 @@ main {
 
 /*---------- desktop header ----------*/
 .desktop-nav {
-  background-color: #488dcef3;
+  background-color: #5a96cef3;
   width: 100%;
   position: fixed;
   top: 0;
@@ -130,7 +165,7 @@ main {
 
 /*---------- mobile header ----------*/
 .mobile-nav {
-  background-color: #488dcef3;
+  background-color: #5a96cef3;
   width: 98%;
   display: flex;
   justify-content: space-evenly;
@@ -158,7 +193,7 @@ main {
   width: 100%;
   margin: 7vh 0vh 11vh 0vh;
   background-color: white;
-  box-shadow: 0px 0px 9px #88888848;
+  box-shadow: 0px 0px 9px #5757577e;
 }
 
 .post-pic {
@@ -175,7 +210,6 @@ main {
 }
 
 .post-description {
-  font-size: 3.5vw;
   width: 70%;
   margin: 2em auto;
 }
@@ -213,15 +247,38 @@ main {
   font-size: 6vw;
 }
 
-.view-comments-action {
-  font-size: 3.5vw;
+.comments-length {
+  font-size: 3vw;
   color: rgb(68, 68, 68);
   text-decoration: none;
+  display: inline-block;
+}
+
+.fa-comment-dots {
+  font-size: 5.5vw;
+  color: rgb(68, 68, 68);
+  padding-bottom: .2em;
+  border-radius: 1px;
+}
+
+.fa-comment-dots:hover {
+  border-bottom: 2px solid #29a3f5e5;
+  border-top: 2px solid transparent;
 }
 
 /*---------- reaction funcitonality ----------*/
 .smileReacted,.loveReacted,.laughReacted,.cryReacted {
-  background-color: #2fd355;
+  background-color: #29a3f5e5;
+}
+
+.emoji-button:hover {
+  cursor: pointer;
+  animation: userHover .25s forwards;
+}
+
+@keyframes userHover {
+  from {transform: translateY(0);}
+  to {transform: translateY(-6px)}
 }
 
 .user-post {
@@ -234,9 +291,48 @@ main {
   pointer-events: none;
 }
 
+/*---------- comments page ----------*/
+.comment-box {
+  border-radius: 3px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom: none;
+  padding: .5em;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  resize: vertical;
+  box-shadow: 0px 0px 7px rgba(39, 39, 39, 0.2);
+}
+
+.comment-area {
+  padding: 0em 2em;
+}
+
+.comment-button {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  display: block;
+  width: 100%;
+  margin: -1px auto;
+  background-color: rgb(75, 153, 255);
+  border-color: rgb(75, 153, 255);
+  color: white;
+  margin-bottom: 2em;
+}
+
+.comments-container {
+  margin: 3em 0em;
+  margin-bottom: 8em;
+  padding: 0 1em;
+}
+
+.comment-content {
+  width: 80%;
+  margin: 0 auto;
+}
 
 /*---------- media queries ----------*/
-
 /*---------- fix cat emoji offset bug ----------*/
 @media screen and (min-width: 220px) {
   .emoji-button a {
@@ -273,6 +369,18 @@ main {
     margin: 0 auto;
   }
 
+  .username {
+    font-size: 2em;
+  }
+
+  .inline-text {
+    font-size: 1.6em;
+  }
+
+  p {
+  font-size: 1.6em;
+  }
+
   /*---------- landing page ----------*/
   #landing-logo {
     width: 22em;
@@ -297,12 +405,17 @@ main {
     border-radius: 5px;
   }
 
+  .post-pic {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
   .post-header p {
     font-size: 2.4em;
   }
 
   .post-description {
-    font-size: 1.6em;
+    font-size: 1.8em;
   }
 
   .emoji-button {
@@ -319,7 +432,11 @@ main {
     font-size: 1.6em;
   }
 
-  .view-comments-action {
-    font-size: 1.6em;
+  .comments-length {
+    font-size: 1.8em;
+  }
+  
+  .fa-comment-dots {
+    font-size: 3.3em;
   }
 }

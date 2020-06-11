@@ -77,7 +77,10 @@
                                 <p><%= posts[i].cry.length %></p>
                             </span>
                         </div>
-                        <a class="view-comments-action" href="/post/view/<%= postId %>"><i class="fas fa-comment-dots fa-2x"></i> (<%= posts[i].comments.length %>)</a>
+                        <a href="/post/view/<%= postId %>">
+                            <i class="fas fa-comment-dots"></i>
+                            <p class="comments-length" href="/post/view/<%= postId %>"> (<%= posts[i].comments.length %>)</p>
+                        </a>
                     </div>
                 </div>
             </div>
