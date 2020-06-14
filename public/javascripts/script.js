@@ -1,7 +1,7 @@
 const reactions  = document.querySelectorAll(".reaction");
 const main = document.querySelector("main");
 const inputs = document.querySelector(".file-input");
-const newPostFilename = document.querySelector("#new-post-filename");
+const newPostFilename = document.querySelector(".filename-text");
 const petSelect = document.querySelector(".pet-select");
 const userPetPic = document.querySelectorAll(".pet-pic");
 const userPetType = document.querySelectorAll(".pet-type");
@@ -23,8 +23,10 @@ window.onload = function () {
 
 /*- change html to filename -*/
 if (inputs) {
+    console.log("I detected Inputs")
     inputs.addEventListener("change", function(e) {
         if (e.target.files[0].name) {
+            console.log("I attemped to change the text")
             newPostFilename.innerHTML = `${e.target.files[0].name}`
         }
     });

@@ -3,15 +3,20 @@
 <%- include("../partials/head") %>
 <body>
     <%- include("../partials/navbars") %>
-    <main id="new-post-main">
+    <main>
         <% let awsURL = "https://pet-dating.s3-us-west-1.amazonaws.com/" %>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
         <div class="post-card new-post-card">
             <form action="/post/add" method="POST" enctype="multipart/form-data">
                 <div class="new-post-image-container">
-                    <input id="file" class="file-input hidden" type="file" name="attatchment" data-multiple-caption="file selected" />
+                    <input id="file" class="file-input hidden" type="file" name="attatchment" />
                     <label for="file">
                         <i class="fas fa-camera-retro"></i>
-                        <p id="new-post-filename">(optional)</p>
+                        <p class="filename-text">(optional)</p>
                     </label>
                 </div>
                 <div class="post-info">
