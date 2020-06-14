@@ -171,8 +171,8 @@ function changePet(req, res) {
 
 function deletePet(req, res) {
     User.findById(req.user._id).populate('pets').exec((err, user) => {
-        const pet = user.pets[req.params.id];
-        pet.remove((err) => {
+        user.pets.splice(req.params.id, 1)
+        user.save((err) => {
             if (err) return res.redirect(`/user/pets/update/${req.params.id}`)
             res.redirect('/user/pets')
         });

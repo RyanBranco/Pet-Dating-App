@@ -8,7 +8,6 @@ const petsSchema = new Schema ({
     name: {type: String, required: true},
     type: {type: String, required: true},
     gender: {type: String, required: true},
-    sexuality: {type: String, required: true},
     followers: [{type: Schema.Types.ObjectId, ref: "User"}]
 }, {
     timestamps: true

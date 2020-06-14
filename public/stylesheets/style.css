@@ -23,17 +23,20 @@ a {
   text-decoration: none;
 }
 p {
-  font-size: 3.5vw;
+  font-size: 4vw;
+}
+input {
+  font-family: "Open Sans";
 }
 h1 {
   font-family: 'Quicksand';
   font-weight: 600;
-  font-size: 6vw;
+  font-size: 7vw;
 }
 h2 {
   font-family: 'Quicksand';
   font-weight: 600;
-  font-size: 4vw;
+  font-size: 5vw;
 }
 small {
   font-family: "Open Sans";
@@ -123,7 +126,17 @@ body::-webkit-scrollbar{
   display: block;
   margin: 0 auto;
   padding: 5vh 0;
+  padding-bottom: 3vh;
   width: 40%;
+}
+
+#landing-header {
+  text-align: center;
+  color: black;
+}
+
+#landing-header p {
+  margin-bottom: 3vh;
 }
 
 #landing-box {
@@ -426,7 +439,7 @@ body::-webkit-scrollbar{
   color: white;
   border-radius: 3px;
   height: 15vw;
-  padding-top: .2em;
+  padding: .2em 0em;
   cursor: pointer;
   overflow: hidden;
 }
@@ -439,7 +452,6 @@ body::-webkit-scrollbar{
 .file-input + label * {
 	pointer-events: none;
 }
-
 
 .new-post-text-box {
   border-radius: 3px;
@@ -467,6 +479,61 @@ body::-webkit-scrollbar{
   text-shadow: 0px 0px 1.5px grey;
 }
 
+/*---------- user pets page ----------*/
+#user-pets-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  background: white;
+  border-radius: 5px;
+  padding: 1em;
+  box-shadow: 0px 0px 7px rgba(39, 39, 39, 0.2);
+}
+
+#user-pets-header div {
+  display: flex;
+  align-items: baseline;
+}
+
+#add-pet-button {
+  color: white;
+  border-radius: 2px;
+  padding: .5em;
+  background: rgb(0,174,255);
+  background: linear-gradient(90deg, rgba(0,174,255,1) 44%, rgba(55,204,245,1) 100%);
+  box-shadow: 0px 0px 7px rgba(39, 39, 39, 0.26);
+}
+
+.pet-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: black;
+  list-style: none;
+  background: white;
+  margin: 2em;
+  border-radius: 5px;
+  padding: 1em;
+  box-shadow: 0px 0px 7px rgba(39, 39, 39, 0.2);
+}
+
+.pet-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pet-title {
+  display: flex;
+  align-items: baseline;
+}
+
+.pet-description {
+  margin-top: 2em;
+}
+
+#pet-list-container {
+  margin-bottom: 8em;
+}
 
 /*---------- media queries ----------*/
 @media screen and (max-width: 600px) {
@@ -563,20 +630,20 @@ body::-webkit-scrollbar{
   .post-card {
     border-radius: 5px;
   }
-
+  
   .post-pic {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
   }
-
+  
   .post-header p {
     font-size: 2.4em;
   }
-
+  
   .post-description {
     font-size: 1.8em;
   }
-
+  
   .emoji-button {
     width: 3.4573em;
     height: 3.4573em;
@@ -586,11 +653,11 @@ body::-webkit-scrollbar{
     position: static;
     font-size: 2.5em;
   }
-
+  
   .reaction p {
     font-size: 1.6em;
   }
-
+  
   .comments-length {
     font-size: 1.8em;
   }
@@ -598,17 +665,23 @@ body::-webkit-scrollbar{
   .fa-comment-dots {
     font-size: 3.3em;
   }
-
+  
+  /*---------- new post page ----------*/
   .new-post-button {
     font-size: 1.8em;
   }
-
+  
   .file-input + label {
     font-size: 4em;
     height: 2.25em;
   }
-
+  
   .file-input + label p {
     font-size: .5em;
+  }
+
+  /*---------- userpets page ----------*/
+  #user-pets-header {
+    margin-top: 7em;
   }
 }

@@ -22,23 +22,27 @@ window.onload = function () {
 /*--------------------*/
 
 /*- change html to filename -*/
-inputs.addEventListener("change", function(e) {
-    if (e.target.files[0].name) {
-        newPostFilename.innerHTML = `${e.target.files[0].name}`
-    }
-});
+if (inputs) {
+    inputs.addEventListener("change", function(e) {
+        if (e.target.files[0].name) {
+            newPostFilename.innerHTML = `${e.target.files[0].name}`
+        }
+    });
+}
 /*--------------------*/
 
 /*- change pet picture and type to selected pet -*/
-petSelect.addEventListener("change", function(e) {
-    let selectedPetIndex = e.target.options.selectedIndex;
-    let petPic = userPetPic[selectedPetIndex].innerHTML;
-    let fullUrl = `https://pet-dating.s3-us-west-1.amazonaws.com/${petPic}`;
-    let petType = userPetType[selectedPetIndex].innerHTML;
-    let htmlPetPic = document.querySelector("#new-post-pet-pic");
-    let htmlPetType = document.querySelector("#new-post-pet-type");
-
-    htmlPetPic.setAttribute("src", fullUrl);
-    htmlPetType.innerHTML = petType;
-})
+if (petSelect) {
+    petSelect.addEventListener("change", function(e) {
+        let selectedPetIndex = e.target.options.selectedIndex;
+        let petPic = userPetPic[selectedPetIndex].innerHTML;
+        let fullUrl = `https://pet-dating.s3-us-west-1.amazonaws.com/${petPic}`;
+        let petType = userPetType[selectedPetIndex].innerHTML;
+        let htmlPetPic = document.querySelector("#new-post-pet-pic");
+        let htmlPetType = document.querySelector("#new-post-pet-type");
+    
+        htmlPetPic.setAttribute("src", fullUrl);
+        htmlPetType.innerHTML = petType;
+    })
+}
 /*--------------------*/

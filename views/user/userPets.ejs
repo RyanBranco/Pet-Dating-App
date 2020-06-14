@@ -3,18 +3,39 @@
 <%- include("../partials/head") %>
 <body>
     <%- include("../partials/navbars") %>
-    <main id="content">
+    <main>
         <% let awsURL = "https://pet-dating.s3-us-west-1.amazonaws.com/" %>
-        <div class="page">
-            <img class="largeProfilePic" src="<%= user.avatar %>"><h1 class="pageTitle">Pets: </h1>
-            <hr>
-            <a class="anchor" href="/user/pets/new"><i class="fas fa-paw fa-lg"></i><i class="fas fa-plus fa-lg" id="addPetPlus"></i></a>
-            <ul>
+        <div>
+            <div id="user-pets-header">
+                <div>
+                    <img class="profile-pic medium" src="<%= user.avatar %>" alt="user profile picture">
+                    <h1> &nbsp; Your Pets:</h1>
+                </div>
+                <div>
+                    <a id="add-pet-button" href="/user/pets/new">
+                        <i class="fas fa-paw fa-lg fa-2x"></i>
+                        <i class="fas fa-plus fa-lg" id="addPetPlus"></i>
+                    </a>
+                </div>
+            </div>
+            <ul id="pet-list-container">
                 <% pet.forEach((pet, index) => { %>
                     <a href="/user/pets/update/<%= index %>">
-                        <li>
-                            <h3><img id="profilePic" src="<%= awsURL + pet.fileId %>" class="profilePic"> <%= pet.name %></h3>
-                            <p class="petItem"> Traits:</p> <p class="petItem"><%= pet.type %>, <%= pet.gender %>, <%= pet.sexuality %></p>
+                        <li class="pet-list">
+                            <div class="pet-header">
+                                <div class="pet-title">
+                                    <img class="profile-pic medium" src="<%= awsURL + pet.fileId %>" alt="pet profile picture"> 
+                                    <h2><%= pet.name %> <small> the </small> <%= pet.type %></h2>
+                                </div>
+                                <p><%= pet.gender %></p> 
+                            </div>
+                            <div class="pet-description">
+                                <% if (pet.description) { %>
+                                    <p><%= pet.description %></p>
+                                <% } else { %>
+                                    <p class="center-text">No description 😕</p>
+                                <% } %>
+                            </div>
                         </li>
                     </a>
                 <% }) %> 
