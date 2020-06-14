@@ -227,7 +227,7 @@ body::-webkit-scrollbar{
   background-color: #5a96cef3;
   background: rgb(90,150,206);
   background: linear-gradient(141deg, rgba(90,150,206,0.9290091036414566) 46%, rgba(0,174,255,0.8841911764705882) 86%);
-  width: 98%;
+  width: 96%;
   display: flex;
   justify-content: space-evenly;
   position: fixed;
@@ -236,7 +236,7 @@ body::-webkit-scrollbar{
   bottom: 0;
   padding: .75em 0em;
   margin: 0 auto;
-  margin-bottom: 1.75vh;
+  margin-bottom: 1.9vh;
   border-radius: 8px;
   box-shadow: 0px 0px 3px rgba(39, 39, 39, .5);
   z-index: 2;
