@@ -1,5 +1,5 @@
 /*---------- imports ----------*/
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Quicksand:wght@400;500;600&display=swap');
 
 
 /*---------- defaults ----------*/
@@ -9,8 +9,15 @@
   box-sizing: border-box;
 }
 html {
-  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
   font-size: 62.5%;
+}
+body {
+  background-color: #fffdf7;
+}
+
+main {
+  height: 100vh;
 }
 a {
   text-decoration: none;
@@ -19,15 +26,21 @@ p {
   font-size: 3.5vw;
 }
 h1 {
-  font-family: 'Open Sans';
-  font-size: 5vw;
+  font-family: 'Quicksand';
+  font-weight: 600;
+  font-size: 6vw;
 }
 h2 {
-  font-family: 'Open Sans';
+  font-family: 'Quicksand';
+  font-weight: 600;
   font-size: 4vw;
 }
 small {
+  font-family: "Open Sans";
   font-size: 2.5vw;
+}
+textarea {
+  font-family: "Open Sans";
 }
 
 /*---------- hide scrollbar ----------*/
@@ -37,14 +50,6 @@ body::-webkit-scrollbar{
 }
 
 /*---------- general ----------*/
-body {
-  background-color: #fffdf7;
-}
-
-main {
-  height: 100vh;
-}
-
 .profile-pic {
   border-radius: 50px;
   object-fit: cover;
@@ -236,6 +241,8 @@ main {
 }
 
 .post-header p {
+  font-family: "Quicksand";
+  font-weight: 500;
   display: inline-block;
   font-size: 4vw;
 }
@@ -250,6 +257,11 @@ main {
   justify-content: space-between;
   align-items: center;
   margin-top: 1.25em;
+}
+
+.post-actions p {
+  font-family: "Quicksand";
+  font-weight: 400;
 }
 
 .reactions-container {
@@ -276,11 +288,6 @@ main {
 
 .emoji-button a {
   font-size: 6vw;
-}
-
-.emoji-button:hover {
-  background: rgb(78,209,245);
-  background: linear-gradient(126deg, rgba(78,209,245,0.3) 16%, rgba(0,157,255,0.3) 76%);
 }
 
 .comments-length {
