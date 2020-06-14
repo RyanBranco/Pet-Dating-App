@@ -1,9 +1,15 @@
-let reactions  = document.querySelectorAll(".reaction");
-const page = document.querySelector(".page");
+const reactions  = document.querySelectorAll(".reaction");
+const main = document.querySelector("main");
+const inputs = document.querySelector(".file-input");
+const newPostFilename = document.querySelector("#new-post-filename");
+const petSelect = document.querySelector(".pet-select");
+const userPetPic = document.querySelectorAll(".pet-pic");
+const userPetType = document.querySelectorAll(".pet-type");
 let scrollPos;
 
-page.onscroll = function() {
-    scrollPos = page.scrollTop;
+/*- save scroll position -*/
+main.onscroll = function() {
+    scrollPos = main.scrollTop;
 }
 
 window.onunload = function() {
@@ -11,5 +17,28 @@ window.onunload = function() {
 }
 
 window.onload = function () {
-    page.scrollTop = localStorage.getItem("scrollPosition");
+    main.scrollTop = localStorage.getItem("scrollPosition");
 }
+/*--------------------*/
+
+/*- change html to filename -*/
+inputs.addEventListener("change", function(e) {
+    if (e.target.files[0].name) {
+        newPostFilename.innerHTML = `${e.target.files[0].name}`
+    }
+});
+/*--------------------*/
+
+/*- change pet picture and type to selected pet -*/
+petSelect.addEventListener("change", function(e) {
+    let selectedPetIndex = e.target.options.selectedIndex;
+    let petPic = userPetPic[selectedPetIndex].innerHTML;
+    let fullUrl = `https://pet-dating.s3-us-west-1.amazonaws.com/${petPic}`;
+    let petType = userPetType[selectedPetIndex].innerHTML;
+    let htmlPetPic = document.querySelector("#new-post-pet-pic");
+    let htmlPetType = document.querySelector("#new-post-pet-type");
+
+    htmlPetPic.setAttribute("src", fullUrl);
+    htmlPetType.innerHTML = petType;
+})
+/*--------------------*/

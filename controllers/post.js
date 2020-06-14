@@ -77,7 +77,6 @@ function addPost(req, res) {
 function viewPost(req, res) {
     let userFirstName = req.user.name.split(" ");
     userFirstName = userFirstName[0];
-    console.log(userFirstName)
     Post.findById(req.params.id).populate("user").populate("pet").exec((err, post) => {
         res.render('post/comments', {
             postedUser: post.user,

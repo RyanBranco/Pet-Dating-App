@@ -34,17 +34,16 @@
             <% } %>
             <div class="post-card">
                 <% if (posts[i].fileId) { %>
-                    <img class="post-pic" src="<%= awsURL + posts[i].fileId %>">
+                    <img class="post-pic" src="<%= awsURL + posts[i].fileId %>" alt="post picture">
                 <% } %>
                 <div class="post-info">
                     <div class="post-header">
-                        <img class="profile-pic small" src="<%= posts[i].user.avatar %>">
+                        <img class="profile-pic small" src="<%= posts[i].user.avatar %>" alt="user profile pic">
                         <p><%= posts[i].user.name %> <small>about</small> </p>
-                        <img class="profile-pic small" src="<%= awsURL + posts[i].pet.fileId %>">
+                        <img class="profile-pic small" src="<%= awsURL + posts[i].pet.fileId %>" alt="pet profile picture">
                         <p> <%= posts[i].pet.name %> <small>the</small> <%= posts[i].pet.type %>: </p>
                     </div>
                     <p class="post-description"><%= posts[i].content %></p>
-                    <hr>
                     <div class="post-actions">
                         <div class="reactions-container">
                             <% if (posts[i].user.id === user.id) { %>

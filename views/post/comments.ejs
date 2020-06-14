@@ -41,7 +41,6 @@
                     <p> <%= post.pet.name %> <small>the</small> <%= post.pet.type %>: </p>
                 </div>
                 <p class="post-description"><%= post.content %></p>
-                <hr>
                 <div class="post-actions">
                     <div class="reactions-container">
                         <% if (post.user.id === user.id) { %>
@@ -89,15 +88,23 @@
         </div>
         <br>
         <hr>
+        <br>
         <div class="comments-container">
-            <% post.comments.forEach((comment, index) => { %>
-                <img class="profile-pic small" src="<%= comment.user.avatar %>">
-                <p class="username"><%= comment.user.name %>:</p>
+            <% if (post.comments.length === 0) { %>
+                <p class="center-text">Be the first to comment <small>about</small> <%= post.pet.name %> <small>the</small> <%= post.pet.type %></p>
                 <br>
                 <br>
-                <p class="comment-content"><%= comment.content %></p>
                 <br>
-            <% }) %>
+            <% } else { %>
+                <% post.comments.forEach((comment, index) => { %>
+                    <img class="profile-pic small" src="<%= comment.user.avatar %>">
+                    <p class="username"><%= comment.user.name %>:</p>
+                    <br>
+                    <br>
+                    <p class="comment-content"><%= comment.content %></p>
+                    <br>
+                <% }) %>
+            <% } %>
         </div>
     </main>
 </body>

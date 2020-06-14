@@ -2,30 +2,72 @@
 <html lang="en">
 <%- include("../partials/head") %>
 <body>
-    <%- include("../partials/header") %>
-    <main id="content">
-        <div class="page">
-            <h1>Make a new post</h1>
-            <div class="card">
-                <form action="/post/add" method="POST" enctype="multipart/form-data">
-                    <label class="labelNonSelect" id="chooseFileNewPost"> Add Image:
-                        <input type="file" name="attatchment" class="chooseFile">
+    <%- include("../partials/navbars") %>
+    <main id="new-post-main">
+        <% let awsURL = "https://pet-dating.s3-us-west-1.amazonaws.com/" %>
+        <div class="post-card new-post-card">
+            <form action="/post/add" method="POST" enctype="multipart/form-data">
+                <div class="new-post-image-container">
+                    <input id="file" class="file-input hidden" type="file" name="attatchment" data-multiple-caption="file selected" />
+                    <label for="file">
+                        <i class="fas fa-camera-retro"></i>
+                        <p id="new-post-filename">(optional)</p>
                     </label>
-                    <hr>
-                    <label>Pet:
-                        <select name="pet" id="postPetSelect">
-                            <% user.pets.forEach((pet) => { %>
-                                <option value="<%= pet._id %>"><%= pet.name %></option>
-                            <% }) %> 
-                        </select> 
-                    </label>
-                    <textarea name="content" placeholder="Whats up?.." class="labelNonSelect"></textarea>
-                    <input type="hidden" name="fileId" value="">
-                    <input type="hidden" name="user" value="<%= user._id %>">
-                    <input type="submit" value="Post" class="edit" id="makePost">
-                </form>
-            </div>
+                </div>
+                <div class="post-info">
+                    <div class="post-header">
+                        <img class="profile-pic small" src="<%= user.avatar %>">
+                        <p><%= user.name %> <small>about</small> </p>
+                        <img id="new-post-pet-pic" class="profile-pic small" src="<%= awsURL + user.pets[0].fileId %>">
+                        <p> 
+                            <label>
+                                <select class="pet-select" name="pet">
+                                    <% user.pets.forEach((pet, index) => { %>
+                                        <option value="<%= pet._id %>"><%= pet.name %></option>
+                                    <% }) %> 
+                                </select> 
+                            </label>
+                            <small>the</small> 
+                            <span id="new-post-pet-type"><%= user.pets[0].type %>:</span> 
+                        </p>
+                    </div>
+                    <div>
+                        <textarea class="new-post-text-box" name="content" placeholder="Whats up dog?" rows="4"></textarea>
+                    </div>
+                    <div class="post-actions">
+                        <div class="reactions-container">
+                            <span class="reaction user-post">
+                                <button class="emoji-button"><a>😸</a></button>
+                                <p>0</p>
+                            </span>
+                            <span class="reaction user-post">
+                                <button class="emoji-button"><a>😻</a></button>
+                                <p>0</p>
+                            </span>
+                            <span class="reaction user-post">
+                                <button class="emoji-button"><a>😹</a></button>
+                                <p>0</p>
+                            </span>
+                            <span class="reaction user-post">
+                                <button class="emoji-button"><a>😿</a></button>
+                                <p>0</p>
+                            </span>
+                        </div>
+                        <div>
+                            <i class="fas fa-comment-dots nohover"></i>
+                            <p class="comments-length nohover"> 0</p>
+                        </div>
+                    </div>
+                </div>
+                <input type="hidden" name="fileId" value="">
+                <input type="hidden" name="user" value="<%= user._id %>">
+                <input type="submit" value="Post" class="action-button new-post-button">
+            </form>
         </div>
+        <% user.pets.forEach((pet, index) => { %>
+            <p class="pet-pic hidden"><%= user.pets[index].fileId %></p>
+            <p class="pet-type hidden"><%= user.pets[index].type %></p>
+        <% }) %> 
     </main>
 </body>
 </html>
