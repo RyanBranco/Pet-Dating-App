@@ -27,6 +27,14 @@ p {
 }
 input {
   font-family: "Open Sans";
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 h1 {
   font-family: 'Quicksand';
@@ -92,7 +100,7 @@ body::-webkit-scrollbar{
   color: rgb(0, 110, 255);
   border: 1px solid rgb(0, 110, 255);
   padding: .2em .6em;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 
 .warning-action-button {
@@ -407,6 +415,7 @@ body::-webkit-scrollbar{
 .new-post-card {
   padding-top: 1em;
   margin-top: 0;
+  margin-bottom: 0;
 }
 
 .new-post-image-container {
@@ -438,7 +447,7 @@ body::-webkit-scrollbar{
   width: 100%;
   color: white;
   border-radius: 3px;
-  height: 15vw;
+  height: 18vw;
   padding: .2em 0em;
   cursor: pointer;
   overflow: hidden;
@@ -532,7 +541,7 @@ body::-webkit-scrollbar{
 }
 
 #pet-list-container {
-  margin-bottom: 8em;
+  padding-bottom: 8em;
 }
 
 /*---------- media queries ----------*/
@@ -673,7 +682,7 @@ body::-webkit-scrollbar{
   
   .file-input + label {
     font-size: 4em;
-    height: 2.25em;
+    height: 2.5em;
   }
   
   .file-input + label p {
