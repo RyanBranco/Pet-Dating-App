@@ -4,75 +4,82 @@
 <body>
     <%- include("../partials/navbars") %>
     <main>
-        <% let awsURL = "https://pet-dating.s3-us-west-1.amazonaws.com/" %>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <div class="post-card new-post-card">
-            <form action="/post/add" method="POST" enctype="multipart/form-data">
-                <div class="new-post-image-container">
-                    <input id="file" class="file-input hidden" type="file" name="attatchment" />
-                    <label for="file">
-                        <i class="fas fa-camera-retro"></i>
-                        <p class="filename-text">(optional)</p>
-                    </label>
-                </div>
-                <div class="post-info">
-                    <div class="post-header">
-                        <img class="profile-pic small" src="<%= user.avatar %>">
-                        <p><%= user.name %> <small>about</small> </p>
-                        <img id="new-post-pet-pic" class="profile-pic small" src="<%= awsURL + user.pets[0].fileId %>">
-                        <p> 
-                            <label>
-                                <select class="pet-select" name="pet">
-                                    <% user.pets.forEach((pet, index) => { %>
-                                        <option value="<%= pet._id %>"><%= pet.name %></option>
-                                    <% }) %> 
-                                </select> 
-                            </label>
-                            <small>the</small> 
-                            <span id="new-post-pet-type"><%= user.pets[0].type %>:</span> 
-                        </p>
+        <% if (user.pets.length === 0) { %>
+            <div id="new-post-no-pet">
+                <p>You need to have at least one pet before you can make a post silly</p>
+                <a class="text-link" href="/user/pets/new">click here to add a pet to your list</a>
+            </div>
+        <% } else { %>
+            <% let awsURL = "https://pet-dating.s3-us-west-1.amazonaws.com/" %>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="post-card new-post-card">
+                <form action="/post/add" method="POST" enctype="multipart/form-data">
+                    <div class="new-post-image-container">
+                        <input id="file" class="file-input hidden" type="file" name="attatchment" />
+                        <label for="file">
+                            <i class="fas fa-camera-retro"></i>
+                            <p class="filename-text">(optional)</p>
+                        </label>
                     </div>
-                    <div>
-                        <textarea class="new-post-text-box" name="content" placeholder="Whats up dog?" rows="4"></textarea>
-                    </div>
-                    <div class="post-actions">
-                        <div class="reactions-container">
-                            <span class="reaction user-post">
-                                <button class="emoji-button"><a>😸</a></button>
-                                <p>0</p>
-                            </span>
-                            <span class="reaction user-post">
-                                <button class="emoji-button"><a>😻</a></button>
-                                <p>0</p>
-                            </span>
-                            <span class="reaction user-post">
-                                <button class="emoji-button"><a>😹</a></button>
-                                <p>0</p>
-                            </span>
-                            <span class="reaction user-post">
-                                <button class="emoji-button"><a>😿</a></button>
-                                <p>0</p>
-                            </span>
+                    <div class="post-info">
+                        <div class="post-header">
+                            <img class="profile-pic small" src="<%= user.avatar %>">
+                            <p><%= user.name %> <small>about</small> </p>
+                            <img id="new-post-pet-pic" class="profile-pic small" src="<%= awsURL + user.pets[0].fileId %>">
+                            <p> 
+                                <label>
+                                    <select class="pet-select" name="pet">
+                                        <% user.pets.forEach((pet, index) => { %>
+                                            <option value="<%= pet._id %>"><%= pet.name %></option>
+                                        <% }) %> 
+                                    </select> 
+                                </label>
+                                <small>the</small> 
+                                <span id="new-post-pet-type"><%= user.pets[0].type %>:</span> 
+                            </p>
                         </div>
                         <div>
-                            <i class="fas fa-comment-dots nohover"></i>
-                            <p class="comments-length nohover"> (0)</p>
+                            <textarea class="new-post-text-box" name="content" placeholder="Whats up dog?" rows="4"></textarea>
+                        </div>
+                        <div class="post-actions">
+                            <div class="reactions-container">
+                                <span class="reaction user-post">
+                                    <button class="emoji-button"><a>😸</a></button>
+                                    <p>0</p>
+                                </span>
+                                <span class="reaction user-post">
+                                    <button class="emoji-button"><a>😻</a></button>
+                                    <p>0</p>
+                                </span>
+                                <span class="reaction user-post">
+                                    <button class="emoji-button"><a>😹</a></button>
+                                    <p>0</p>
+                                </span>
+                                <span class="reaction user-post">
+                                    <button class="emoji-button"><a>😿</a></button>
+                                    <p>0</p>
+                                </span>
+                            </div>
+                            <div>
+                                <i class="fas fa-comment-dots nohover"></i>
+                                <p class="comments-length nohover"> (0)</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <input type="hidden" name="fileId" value="">
-                <input type="hidden" name="user" value="<%= user._id %>">
-                <input type="submit" value="Post" class="action-button new-post-button">
-            </form>
-        </div>
-        <% user.pets.forEach((pet, index) => { %>
-            <p class="pet-pic hidden"><%= user.pets[index].fileId %></p>
-            <p class="pet-type hidden"><%= user.pets[index].type %></p>
-        <% }) %> 
+                    <input type="hidden" name="fileId" value="">
+                    <input type="hidden" name="user" value="<%= user._id %>">
+                    <input type="submit" value="Post" class="action-button new-post-button">
+                </form>
+            </div>
+            <% user.pets.forEach((pet, index) => { %>
+                <p class="pet-pic hidden"><%= user.pets[index].fileId %></p>
+                <p class="pet-type hidden"><%= user.pets[index].type %></p>
+            <% }) %> 
+        <% } %>
     </main>
 </body>
 </html>

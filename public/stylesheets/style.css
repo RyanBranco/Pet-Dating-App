@@ -22,7 +22,7 @@ main {
 a {
   text-decoration: none;
 }
-p {
+p, a {
   font-size: 4vw;
 }
 input {
@@ -63,7 +63,7 @@ body::-webkit-scrollbar{
 
 /*---------- general ----------*/
 .profile-pic {
-  border-radius: 50px;
+  border-radius: 100px;
   object-fit: cover;
 }
 
@@ -93,7 +93,10 @@ body::-webkit-scrollbar{
 
 .username {
   display: inline-block;
-  font-size: 3.5vw;
+  font-family: "Quicksand";
+  font-weight: 500;
+  display: inline-block;
+  font-size: 4vw;
 }
 
 .action-button {
@@ -130,8 +133,12 @@ body::-webkit-scrollbar{
 	z-index: -1;
 }
 
-#filler {
+.filler {
   height: 8em;
+}
+
+.text-link {
+  color: blue;
 }
 
 /*---------- landing page ----------*/
@@ -410,6 +417,17 @@ body::-webkit-scrollbar{
 }
 
 /*---------- new post page ----------*/
+#new-post-no-pet {
+  width: 50vw;
+  text-align: center;
+  margin: 0 auto;
+}
+
+#new-post-no-pet p {
+  padding-top: 20vh;
+  margin-bottom: 4vh;
+}
+
 .new-post-card {
   padding-top: 1em;
   margin-top: 0;
@@ -604,7 +622,7 @@ body::-webkit-scrollbar{
     font-size: 1.4em;
   }
 
-  p {
+  p, a {
   font-size: 1.6em;
   }
 
