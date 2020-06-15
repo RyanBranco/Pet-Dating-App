@@ -12,6 +12,7 @@
             <% let loveReacted = "" %>
             <% let laughReacted = "" %>
             <% let cryReacted = "" %>
+            <p class="hidden current-route">/matcher</p>
             <% for (let j = 0; j < posts[i].smile.length; j++) { %>
                 <% if (posts[i].smile[j] == user.id) { %>
                     <% smileReacted = "smileReacted" %>

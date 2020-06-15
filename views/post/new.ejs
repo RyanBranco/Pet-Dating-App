@@ -4,6 +4,7 @@
 <body>
     <%- include("../partials/navbars") %>
     <main>
+        <p class="hidden current-route">/newpost</p>
         <% if (user.pets.length === 0) { %>
             <div id="new-post-no-pet">
                 <p>You need to have at least one pet before you can make a post silly</p>

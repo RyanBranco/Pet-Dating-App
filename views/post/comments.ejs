@@ -9,6 +9,7 @@
         <% let loveReacted = "" %>
         <% let laughReacted = "" %>
         <% let cryReacted = "" %>
+        <p class="hidden current-route">/comments</p>
         <div class="post-card">
             <% if (post.fileId) { %>
                 <img class="post-pic" src="<%= awsURL + post.fileId %>">

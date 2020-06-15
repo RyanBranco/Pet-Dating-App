@@ -22,7 +22,7 @@ main {
 a {
   text-decoration: none;
 }
-p, a {
+p {
   font-size: 4vw;
 }
 input {
@@ -139,6 +139,18 @@ body::-webkit-scrollbar{
 
 .text-link {
   color: blue;
+}
+
+#nav-user, #nav-userpets, #nav-matcher, #nav-post {
+  border-radius: 2px;
+  padding-top: 5px;
+  padding-bottom: 2px;
+}
+
+#desktop-nav-user, #desktop-nav-userpets, #desktop-nav-post {
+  border-radius: 2px;
+  padding-top: 2px;
+  padding-bottom: 5px;
 }
 
 /*---------- landing page ----------*/
@@ -622,7 +634,7 @@ body::-webkit-scrollbar{
     font-size: 1.4em;
   }
 
-  p, a {
+  p {
   font-size: 1.6em;
   }
 
