@@ -1,7 +1,7 @@
 {
-    "short_name": "",
-    "name": "",
-    "description": "",
+    "short_name": "petmatcher",
+    "name": "Pet Matcher",
+    "description": "Social Media for your pets.",
     "icons": [
       {
         "src": "",
