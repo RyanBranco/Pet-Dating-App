@@ -1,0 +1,38 @@
+{
+    "short_name": "",
+    "name": "",
+    "description": "",
+    "icons": [
+      {
+        "src": "",
+        "type": "",
+        "sizes": ""
+      },
+      {
+        "src": "",
+        "type": "",
+        "sizes": ""
+      }
+    ],
+    "start_url": "",
+    "background_color": "",
+    "display": "",
+    "scope": "/",
+    "theme_color": "",
+    "shortcuts": [
+      {
+        "name": "",
+        "short_name": "",
+        "description": "",
+        "url": "",
+        "icons": [{ "src": "", "sizes": "" }]
+      },
+      {
+        "name": "",
+        "short_name": "",
+        "description": "",
+        "url": "",
+        "icons": [{ "src": "", "sizes": "" }]
+      }
+    ]
+  }

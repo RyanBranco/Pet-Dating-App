@@ -578,6 +578,33 @@ body::-webkit-scrollbar{
   margin-right: auto;
 }
 
+/*---------- user page ----------*/
+.user-card {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-card-sub-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.mobile-logout {
+  font-size: 1.2em;
+  background: #4eade7;
+  color: white;
+  padding: .1em .5em;
+  border-radius: 5px;
+}
+
+.view-user-posts {
+  margin: 0;
+  width: auto;
+  font-size: 1.3em;
+}
+
 /*---------- media queries ----------*/
 @media screen and (max-width: 600px) {
   hr {

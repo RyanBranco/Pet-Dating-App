@@ -57,7 +57,7 @@ if (currentRoute === "/matcher") {
     const desktopNavPost = document.querySelector("#desktop-nav-post")
     mobileNavPost.style.borderTop = "3px solid white";
     desktopNavPost.style.borderBottom = "3px solid white";
-} else if (currentRoute === "/user") {
+} else if (currentRoute === "/user" || currentRoute === "/user/posts") {
     const mobileNavUser = document.querySelector("#nav-user");
     const desktopNavUser = document.querySelector("#desktop-nav-user");
     mobileNavUser.style.borderTop = "3px solid white";
