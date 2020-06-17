@@ -150,8 +150,16 @@ body::-webkit-scrollbar{
 }
 
 /*---------- landing page ----------*/
-#landing-logo {
+#landing-logo-192x192 {
   display: block;
+  margin: 0 auto;
+  padding: 5vh 0;
+  padding-bottom: 3vh;
+  width: 40%;
+}
+
+#landing-logo {
+  display: none;
   margin: 0 auto;
   padding: 5vh 0;
   padding-bottom: 3vh;
@@ -629,6 +637,14 @@ body::-webkit-scrollbar{
   }
 }
 @media screen and (min-width: 490px) {
+  #landing-logo-192x192 {
+    display: none;
+  }
+
+  #landing-logo {
+    display: block;
+  }
+
   .emoji-button a {
     bottom: 2px;
     right: 1px;
