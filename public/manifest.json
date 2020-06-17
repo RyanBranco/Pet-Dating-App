@@ -1,6 +1,6 @@
 {
   "name": "Pet Matcher",
-  "short_name": "petmatcher",
+  "short_name": "PetMatcher",
   "description": "Social Media for your pets.",
   "icons": [
     {
@@ -44,7 +44,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/matcher/index.html",
+  "start_url": "/",
   "background_color": "#49b0ec",
   "display": "fullscreen",
   "theme_color": "#38bafb",
