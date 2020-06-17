@@ -44,7 +44,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/matcher/index.html",
+  "start_url": "/index.html",
   "background_color": "#49b0ec",
   "display": "standalone",
   "theme_color": "#38bafb",
