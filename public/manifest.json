@@ -44,7 +44,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/pwalanding",
+  "start_url": "pwalanding",
   "background_color": "#49b0ec",
   "display": "fullscreen",
   "theme_color": "#38bafb",
