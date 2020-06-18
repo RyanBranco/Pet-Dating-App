@@ -149,6 +149,27 @@ body::-webkit-scrollbar{
   padding-bottom: 5px;
 }
 
+/*---------- how to page ----------*/
+article {
+  padding: 1em;
+}
+.iosdiv img, .androiddiv img, .computerdiv img {
+  width: 42vw;
+  margin: 4vh 2vw;
+  margin-top: 0vh;
+  border: 1px solid black;
+  border-radius: 3px;
+}
+
+.iosdiv div, .androiddiv div, .computerdiv div {
+  display: flex;
+  text-align: center;
+}
+
+.androiddiv p {
+  margin: 2vh 0;
+}
+
 /*---------- landing page ----------*/
 #landing-logo-192x192 {
   display: block;
@@ -692,6 +713,11 @@ body::-webkit-scrollbar{
 
   textarea {
     font-size: 1.6em;
+  }
+
+  /*---------- landing page ----------*/
+  .iosdiv img, .androiddiv img, .computerdiv img {
+    width: 20em;
   }
 
   /*---------- landing page ----------*/
