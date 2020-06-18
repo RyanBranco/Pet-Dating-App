@@ -177,6 +177,7 @@ body::-webkit-scrollbar{
 
 #landing-box {
   margin: 0 auto;
+  margin-bottom: 2vh;
   padding: 2vh;
   width: 85%;
   color: white;

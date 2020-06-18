@@ -11,7 +11,7 @@
     "debug": "~2.6.9",
     "dotenv": "^8.2.0",
     "ejs": "~2.6.1",
-    "express": "~4.16.1",
+    "express": "^4.16.4",
     "express-session": "^1.17.0",
     "http-errors": "~1.6.3",
     "method-override": "^3.0.0",
@@ -23,6 +23,7 @@
     "passport-google-oauth": "^2.0.0",
     "passport-google-oauth20": "^1.0.0",
     "request": "^2.88.2",
-    "serve-favicon": "^2.5.0"
+    "serve-favicon": "^2.5.0",
+    "spdy": "^4.0.2"
   }
 }
