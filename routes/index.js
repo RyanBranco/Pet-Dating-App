@@ -11,6 +11,10 @@ router.get("/howto", function(req, res) {
   res.render("howto")
 })
 
+router.get("pwalanding", function(req,res) {
+  res.render("pwalanding")
+})
+
 router.get('/auth/google', passport.authenticate(
   'google', 
   {scope: ['profile', 'email']}
