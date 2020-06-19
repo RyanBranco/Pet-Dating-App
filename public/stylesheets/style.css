@@ -14,12 +14,16 @@ html {
 }
 body {
   background-color: #fffdf7;
+  height: 105vh;
+}
+main {
+  height: 105vh;
 }
 a {
   text-decoration: none;
 }
 p {
-  font-size: 4vw;
+  font-size: 5vw;
 }
 input {
   font-family: "Open Sans";
@@ -48,7 +52,7 @@ small {
 }
 textarea {
   font-family: "Open Sans";
-  font-size: 3.5vw;
+  font-size: 4.5vw;
 }
 
 /*---------- hide scrollbar ----------*/
@@ -354,31 +358,31 @@ article {
 }
 
 .reaction p {
-  font-size: 3.5vw;
+  font-size: 4.5vw;
 }
 
 .emoji-button {
   padding: .5em;
-  width: 8vw;
-  height: 8vw;
+  width: 10.5vw;
+  height: 10.5vw;
   background-color: transparent;
   border: none;
   border-radius: 50px;
 }
 
 .emoji-button a {
-  font-size: 6vw;
+  font-size: 8.5vw;
 }
 
 .comments-length {
-  font-size: 3vw;
+  font-size: 5vw;
   color: rgb(68, 68, 68);
   text-decoration: none;
   display: inline-block;
 }
 
 .fa-comment-dots {
-  font-size: 5.5vw;
+  font-size: 10.5vw;
   color: rgb(68, 68, 68);
   padding-bottom: .2em;
   border-radius: 1px;
@@ -656,13 +660,8 @@ article {
 @media screen and (min-width: 220px) {
   .emoji-button a {
     position: relative;
-    bottom: 6px;
-    right: 3px;
-  }
-}
-@media screen and (min-width: 360px) {
-  .emoji-button a {
     bottom: 4px;
+    right: 3px;
   }
 }
 @media screen and (min-width: 425px) {
