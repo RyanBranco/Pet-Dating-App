@@ -4,83 +4,77 @@
 <body>
     <%- include("../partials/desktopnav") %>
     <main>
-        <div>
-            <% for (let i = posts.length - 1; i >= 0; i--) { %>
-                <% let postId = posts[i]._id %>
-                <% let awsURL = "https://pet-dating.s3-us-west-1.amazonaws.com/" %>
-                <p class="hidden current-route">/user/posts</p>
-                <div class="post-card">
-                    <% if (posts[i].fileId) { %>
-                        <img class="post-pic" src="<%= awsURL + posts[i].fileId %>" alt="post picture">
-                    <% } %>
-                    <div class="post-info">
-                        <div class="post-header">
-                            <img class="profile-pic small" src="<%= posts[i].user.avatar %>" alt="user profile pic">
-                            <p><%= posts[i].user.name %> <small>about</small> </p>
-                            <img class="profile-pic small" src="<%= awsURL + posts[i].pet.fileId %>" alt="pet profile picture">
-                            <p> <%= posts[i].pet.name %> <small>the</small> <%= posts[i].pet.type %>: </p>
+        <p class="hidden current-route">/user/posts</p>
+        <div class="user-details-header">
+            <div>
+                <img class="profile-pic medium" src="<%= user.avatar %>" alt="user profile picture">
+                <h1> &nbsp; Your Posts:</h1>
+            </div>
+        </div>
+        <% for (let i = posts.length - 1; i >= 0; i--) { %>
+            <% let postId = posts[i]._id %>
+            <% let awsURL = "https://pet-dating.s3-us-west-1.amazonaws.com/" %>
+            <div class="post-card">
+                <% if (posts[i].fileId) { %>
+                    <img class="post-pic" src="<%= awsURL + posts[i].fileId %>" alt="post picture">
+                <% } %>
+                <div class="post-info">
+                    <div class="post-header">
+                        <img class="profile-pic small" src="<%= posts[i].user.avatar %>" alt="user profile pic">
+                        <p><%= posts[i].user.name %> <small>about</small> </p>
+                        <img class="profile-pic small" src="<%= awsURL + posts[i].pet.fileId %>" alt="pet profile picture">
+                        <p> <%= posts[i].pet.name %> <small>the</small> <%= posts[i].pet.type %>: </p>
+                    </div>
+                    <p class="post-description"><%= posts[i].content %></p>
+                    <div class="post-actions">
+                        <div class="reactions-container">
+                            <% if (posts[i].user.id === user.id) { %>
+                                <% userPost = "user-post" %>
+                                <% } else { %>
+                                <% userPost = "" %>
+                            <% }%>
+                            <span class="reaction user-post">
+                                <form action="/post/react/<%= postId %>/smile?_method=PUT" method="POST">
+                                    <button class="emoji-button"><a>😸</a></button>
+                                </form>
+                                <p><%= posts[i].smile.length %></p>
+                            </span>
+                            <span class="reaction user-post">
+                                <form action="/post/react/<%= postId %>/love?_method=PUT" method="POST">
+                                    <button class="emoji-button"><a>😻</a></button>
+                                </form>
+                                <p><%= posts[i].love.length %></p>
+                            </span>
+                            <span class="reaction user-post">
+                                <form action="/post/react/<%= postId %>/laugh?_method=PUT" method="POST">
+                                    <button class="emoji-button"><a>😹</a></button>
+                                </form>
+                                <p><%= posts[i].laugh.length %></p>
+                            </span>
+                            <span class="reaction user-post">
+                                <form action="/post/react/<%= postId %>/cry?_method=PUT" method="POST">
+                                    <button class="emoji-button"><a>😿</a></button>
+                                </form>
+                                <p><%= posts[i].cry.length %></p>
+                            </span>
                         </div>
-                        <p class="post-description"><%= posts[i].content %></p>
-                        <div class="post-actions">
-                            <div class="reactions-container">
-                                <% if (posts[i].user.id === user.id) { %>
-                                    <% userPost = "user-post" %>
-                                    <% } else { %>
-                                    <% userPost = "" %>
-                                <% }%>
-                                <span class="reaction user-post">
-                                    <form action="/post/react/<%= postId %>/smile?_method=PUT" method="POST">
-                                        <button class="emoji-button"><a>😸</a></button>
-                                    </form>
-                                    <p><%= posts[i].smile.length %></p>
-                                </span>
-                                <span class="reaction user-post">
-                                    <form action="/post/react/<%= postId %>/love?_method=PUT" method="POST">
-                                        <button class="emoji-button"><a>😻</a></button>
-                                    </form>
-                                    <p><%= posts[i].love.length %></p>
-                                </span>
-                                <span class="reaction user-post">
-                                    <form action="/post/react/<%= postId %>/laugh?_method=PUT" method="POST">
-                                        <button class="emoji-button"><a>😹</a></button>
-                                    </form>
-                                    <p><%= posts[i].laugh.length %></p>
-                                </span>
-                                <span class="reaction user-post">
-                                    <form action="/post/react/<%= postId %>/cry?_method=PUT" method="POST">
-                                        <button class="emoji-button"><a>😿</a></button>
-                                    </form>
-                                    <p><%= posts[i].cry.length %></p>
-                                </span>
-                            </div>
-                            <a href="/post/view/<%= postId %>">
-                                <i class="fas fa-comment-dots"></i>
-                                <p class="comments-length" href="/post/view/<%= postId %>"> (<%= posts[i].comments.length %>)</p>
-                            </a>
-                        </div>
+                        <a href="/post/view/<%= postId %>">
+                            <i class="fas fa-comment-dots"></i>
+                        </a>
                     </div>
                 </div>
-            <% } %>
-            <div class="filler"></div>
-            <% posts.forEach((post, index) => { %>
-                <% let postId = post._id %> 
+            </div>
+            <div class="user-post-options">
                 <form action="/user/post/delete/<%= postId %>?_method=DELETE" method="POST">
-                    <div class="postCard post-info" id="viewPost">
-                        <img class="storyPic" src="<%= post.attatchment %>">
-                        <img class="profilePicSmall" src="<%= user.avatar %>"><p class="userInfo"><%= user.name %> <small>about</small> <%= post.pet %>: </p>
-                        <p class="userStory"><%= post.content %></p>
-                        <hr>
-                        <a class="actions" href="/post/view/<%= postId %>" id="viewC">View Comments</a>
-                        <input type="submit" value="DELETE POST" class="delete" id="deletePost">
-                    </div>
+                    <button class="trash-post"><i class="far fa-trash-alt fa-2x"></i></button>
                 </form>
-            <% }) %> 
-        </div>
+            </div>
+        <% } %>
         <div class="filler"></div>
         <div class="filler"></div>
         <div class="filler"></div>
         <div class="filler"></div>
-        <%- include("../partials/mobilenav") %>
     </main>
+    <%- include("../partials/mobilenav") %>
 </body>
 </html>

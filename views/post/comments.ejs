@@ -82,11 +82,12 @@
             <p class="username"><%= userFirstName %></p>
             <p class="inline-text">:</p>
             <form action="/post/view/<%= postId %>/comment" method="POST">
-                <textarea class="comment-box" name="content" rows="6"></textarea>
+                <textarea class="comment-box" name="content" rows="3"></textarea>
                 <input class="action-button comment-button" type="submit" value="Comment">
             </form>
         </div>
         <br>
+        <p class="comments-length">Comments (<%= post.comments.length %>)</p>
         <hr>
         <br>
         <div class="comments-container">

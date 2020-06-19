@@ -97,11 +97,11 @@ function addPet(req, res) {
 }
 
 function showPosts(req, res) {
-    Post.find({user: req.user.id}, (err, posts) => {
-        res.render('user/posts', {
+    Post.find({user: req.user.id}).populate("user").populate("pet").exec((err, posts) => {
+            res.render('user/posts', {
             user: req.user,
             posts
-        })
+        }) 
     })
 }
 

@@ -103,14 +103,6 @@ body::-webkit-scrollbar{
   border-radius: 2px;
 }
 
-.warning-action-button {
-  background-color: white;
-  color: rgb(255, 56, 82);
-  border: 1px solid rgb(255, 56, 82);
-  padding: .2em .6em;
-  border-radius: 3px;
-}
-
 .inline-text {
   font-size: 3.5vw;
   display: inline-block;
@@ -310,6 +302,7 @@ article {
   margin: 7vh 0vh 11vh 0vh;
   background-color: white;
   box-shadow: 0px 0px 9px #57575742;
+  position: relative;
 }
 
 .post-pic {
@@ -371,10 +364,11 @@ article {
 }
 
 .comments-length {
-  font-size: 5vw;
+  font-size: 4vw;
   color: rgb(68, 68, 68);
   text-decoration: none;
   display: inline-block;
+  margin-left: 2em;
 }
 
 .fa-comment-dots {
@@ -600,16 +594,13 @@ article {
   align-items: baseline;
 }
 
-.pet-description {
-  margin-top: 2em;
-}
-
 #pet-list-container {
   padding-bottom: 8em;
 }
 
 .pet-description {
   width: 80%;
+  margin-top: 2em;
   margin-left: auto;
   margin-right: auto;
 }
@@ -657,6 +648,28 @@ article {
 
 .offset {
   margin-left: 1em;
+}
+
+.trash-post {
+  color: red;
+  background-color: transparent;
+  font-size: 1.25em;
+  padding: .25em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.user-post-options {
+  width: fit-content;
+  margin: -11vh auto 11vh 4vw;
+  display: flex;
+  padding: 1em;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: white;
+  box-shadow: 0px 9px 9px rgba(39, 39, 39, 0.075);
+  border-radius: 5px;
 }
 
 /*---------- media queries ----------*/
@@ -817,7 +830,16 @@ article {
   }
 
   /*---------- userpets page ----------*/
-  #user-pets-header {
+  .user-pets-header {
     margin-top: 7em;
   }
+
+    /*---------- userdetails page ----------*/
+    .user-details-header {
+      margin-top: 7em;
+    }
+
+    .mobile-logout {
+      display: none;
+    }
 }
