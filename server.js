@@ -46,6 +46,7 @@ app.use(passport.session());
 
 //mount all routes here
 app.use('/', indexRouter);
+app.use('/pwalanding', indexRouter);
 app.use('/matcher', matcherRouter);
 app.use('/user', userRouter);
 app.use('/post', postRouter);

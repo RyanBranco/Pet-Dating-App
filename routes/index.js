@@ -11,7 +11,7 @@ router.get("/howto", function(req, res) {
   res.render("howto")
 })
 
-router.get("pwalanding", function(req,res) {
+router.get("/pwalanding", function(req,res) {
   res.render("pwalanding")
 })
 
