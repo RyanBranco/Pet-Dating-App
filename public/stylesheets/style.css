@@ -164,16 +164,17 @@ article {
 }
 .iosdiv img, .androiddiv img, .computerdiv img {
   width: 42vw;
+  height: 100%;
   margin: 4vh 2vw;
   margin-top: 0vh;
   border: 1px solid black;
   border-radius: 3px;
-  object-fit: contain;
 }
 
 .iosdiv div, .androiddiv div, .computerdiv div {
   display: flex;
   text-align: center;
+  height: auto;
 }
 
 .androiddiv p {
