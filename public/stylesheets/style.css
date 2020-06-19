@@ -15,9 +15,6 @@ html {
 body {
   background-color: #fffdf7;
 }
-main {
-  height: 100vh;
-}
 a {
   text-decoration: none;
 }
@@ -152,6 +149,15 @@ body::-webkit-scrollbar{
   padding-bottom: 5px;
 }
 
+/*---------- pwa lnding page ----------*/
+#pwalanding-main {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 /*---------- how to page ----------*/
 article {
   padding: 1em;
@@ -162,6 +168,7 @@ article {
   margin-top: 0vh;
   border: 1px solid black;
   border-radius: 3px;
+  object-fit: contain;
 }
 
 .iosdiv div, .androiddiv div, .computerdiv div {

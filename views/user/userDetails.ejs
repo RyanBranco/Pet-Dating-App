@@ -5,19 +5,20 @@
     <%- include("../partials/navbars") %>
     <main>
         <p class="hidden current-route">/user</p>
-            <div class="user-details-header">
-                <div>
-                    <img class="profile-pic medium" src="<%= user.avatar %>" alt="user profile picture">
-                    <h1 class="username"><%= user.name %></h1>
-                </div>
-                <div class="user-card-sub-div">
-                    <a class="mobile-logout" href="/logout"><i class="fas fa-sign-out-alt fa-2x"></i></a>
-                    <a class="action-button comment-button view-user-posts" href="/user/posts">View your posts</a>
-                </div>
-            </div>
+        <div class="user-details-header">
             <div>
-                <p>Activity</p>
+                <img class="profile-pic medium" src="<%= user.avatar %>" alt="user profile picture">
+                <h1 class="username"><%= user.name %></h1>
             </div>
+            <div class="user-card-sub-div">
+                <a class="mobile-logout" href="/logout"><i class="fas fa-sign-out-alt fa-2x"></i></a>
+                <a class="action-button comment-button view-user-posts" href="/user/posts">View your posts</a>
+            </div>
+        </div>
+        <div>
+            <p>Activity</p>
+        </div>
+        <div class="filler"></div>
     </main>
 </body>
 </html>
