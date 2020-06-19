@@ -14,10 +14,6 @@ html {
 }
 body {
   background-color: #fffdf7;
-  height: 105vh;
-}
-main {
-  height: 105vh;
 }
 a {
   text-decoration: none;
@@ -294,7 +290,7 @@ article {
   position: fixed;
   bottom: 0;
   padding: .75em 0em;
-  padding-bottom: 4.25vh;
+  padding-bottom: 5vh;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   box-shadow: 0px 0px 3px rgba(39, 39, 39, .5);
@@ -622,6 +618,7 @@ article {
 .user-details-header {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   background: white;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -636,16 +633,23 @@ article {
 
 .mobile-logout {
   font-size: 1.2em;
-  background: #4eade7;
-  color: white;
+  border: 2px solid #4eade7;
+  color: #4eade7;
   padding: .1em .5em;
   border-radius: 5px;
+  box-shadow: 0px 0px 7px rgba(39, 39, 39, 0.175);
 }
 
 .view-user-posts {
   margin: 0;
   width: auto;
-  font-size: 1.3em;
+  font-size: 1.5em;
+  background-color: rgb(75, 153, 255);
+  border-color: rgb(75, 153, 255);
+  box-shadow: 0px 0px 7px rgba(39, 39, 39, 0.4);
+  color: white;
+  margin: 1em 0;
+  float: right;
 }
 
 /*---------- media queries ----------*/
