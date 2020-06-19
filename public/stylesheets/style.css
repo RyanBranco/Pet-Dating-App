@@ -13,6 +13,7 @@ html {
   font-size: 62.5%;
 }
 body {
+  height: 100vh;
   background-color: #fffdf7;
 }
 a {
@@ -277,12 +278,9 @@ article {
   display: flex;
   justify-content: space-evenly;
   position: fixed;
-  right: 0;
-  left: 0;
   bottom: 0;
   padding: .75em 0em;
-  padding-bottom: 3vh;
-  margin: 0 auto;
+  padding-bottom: 4.25vh;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   box-shadow: 0px 0px 3px rgba(39, 39, 39, .5);
@@ -291,7 +289,7 @@ article {
 
 .mobile-nav-item {
   color: white;
-  font-size: 2.5vh;
+  font-size: 2.75vh;
   text-shadow: 0px 0px 1px black;
 }
 
@@ -544,17 +542,18 @@ article {
 }
 
 /*---------- user pets page ----------*/
-#user-pets-header {
+.user-pets-header {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   background: white;
-  border-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
   padding: 1em;
   box-shadow: 0px 0px 7px rgba(39, 39, 39, 0.2);
 }
 
-#user-pets-header div {
+.user-pets-header div {
   display: flex;
   align-items: baseline;
 }
@@ -606,16 +605,18 @@ article {
 }
 
 /*---------- user page ----------*/
-.user-card {
+.user-details-header {
   display: flex;
   justify-content: space-between;
+  background: white;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 1.2em;
+  box-shadow: 0px 0px 7px rgba(39, 39, 39, 0.2);
 }
 
-.user-card-sub-div {
+.user-details-header div {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-end;
 }
 
 .mobile-logout {
