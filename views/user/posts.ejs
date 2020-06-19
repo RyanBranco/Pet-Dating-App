@@ -18,12 +18,14 @@
                 <% if (posts[i].fileId) { %>
                     <img class="post-pic" src="<%= awsURL + posts[i].fileId %>" alt="post picture">
                 <% } %>
-                <div class="post-info">
+                <div class="post-info ">
                     <div class="post-header">
-                        <img class="profile-pic small" src="<%= posts[i].user.avatar %>" alt="user profile pic">
-                        <p><%= posts[i].user.name %> <small>about</small> </p>
-                        <img class="profile-pic small" src="<%= awsURL + posts[i].pet.fileId %>" alt="pet profile picture">
-                        <p> <%= posts[i].pet.name %> <small>the</small> <%= posts[i].pet.type %>: </p>
+                        <img class="profile-pic extra-small" src="<%= posts[i].user.avatar %>" alt="user profile pic">
+                        <p class="username"><%= posts[i].user.name %> <small>about</small> </p>
+                        <div class="pet-pic-and-name">
+                            <img class="profile-pic small" src="<%= awsURL + posts[i].pet.fileId %>" alt="pet profile picture">
+                            <p class="pet-name"> <%= posts[i].pet.name %> <small>the</small> <%= posts[i].pet.type %></p>
+                        </div>
                     </div>
                     <p class="post-description"><%= posts[i].content %></p>
                     <div class="post-actions">
@@ -35,25 +37,25 @@
                             <% }%>
                             <span class="reaction user-post">
                                 <form action="/post/react/<%= postId %>/smile?_method=PUT" method="POST">
-                                    <button class="emoji-button"><a>😸</a></button>
+                                    <button class="emoji-button" disabled><a>😸</a></button>
                                 </form>
                                 <p><%= posts[i].smile.length %></p>
                             </span>
                             <span class="reaction user-post">
                                 <form action="/post/react/<%= postId %>/love?_method=PUT" method="POST">
-                                    <button class="emoji-button"><a>😻</a></button>
+                                    <button class="emoji-button" disabled><a>😻</a></button>
                                 </form>
                                 <p><%= posts[i].love.length %></p>
                             </span>
                             <span class="reaction user-post">
                                 <form action="/post/react/<%= postId %>/laugh?_method=PUT" method="POST">
-                                    <button class="emoji-button"><a>😹</a></button>
+                                    <button class="emoji-button" disabled><a>😹</a></button>
                                 </form>
                                 <p><%= posts[i].laugh.length %></p>
                             </span>
                             <span class="reaction user-post">
                                 <form action="/post/react/<%= postId %>/cry?_method=PUT" method="POST">
-                                    <button class="emoji-button"><a>😿</a></button>
+                                    <button class="emoji-button" disabled><a>😿</a></button>
                                 </form>
                                 <p><%= posts[i].cry.length %></p>
                             </span>

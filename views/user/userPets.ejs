@@ -4,6 +4,7 @@
 <body>
     <%- include("../partials/desktopnav") %>
     <main>
+        <% let genderIcon %>
         <% let awsURL = "https://pet-dating.s3-us-west-1.amazonaws.com/" %>
         <p class="hidden current-route">/user/pets</p>
         <div>
@@ -21,6 +22,15 @@
             </div>
             <ul id="pet-list-container">
                 <% pet.forEach((pet, index) => { %>
+                    <% if (pet.gender === "female") { %>
+                        <% genderIcon = "venus" %>
+                        <% } else if (pet.gender === "male") { %>
+                            <% genderIcon = "mars" %>
+                        <% } else if (pet.gender === "genderless") { %>
+                            <% genderIcon = "genderless" %>
+                        <% }  else if (pet.gender === "transgender") { %>
+                            <% genderIcon = "transgender" %>
+                        <% } %>
                     <a href="/user/pets/update/<%= index %>">
                         <li class="pet-list">
                             <div class="pet-header">
@@ -28,7 +38,7 @@
                                     <img class="profile-pic small" src="<%= awsURL + pet.fileId %>" alt="pet profile picture"> 
                                     <h2><%= pet.name %> <small> the </small> <%= pet.type %></h2>
                                 </div>
-                                <p><%= pet.gender %></p> 
+                                <p><i class="fas fa-<%= genderIcon %> fa-lg"></i></p> 
                             </div>
                         </li>
                     </a>

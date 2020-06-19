@@ -88,11 +88,33 @@ body::-webkit-scrollbar{
 }
 
 .username {
+  font-family: "Quicksand";
+  font-weight: 500;
   display: inline-block;
+  font-size: 3.5vw;
+}
+
+.pet-name {
   font-family: "Quicksand";
   font-weight: 500;
   display: inline-block;
   font-size: 4vw;
+}
+
+.fa-venus {
+  color: rgb(255, 113, 137);
+}
+
+.fa-mars {
+  color: blue;
+}
+
+.fa-genderless {
+  color: rgb(61, 54, 54);
+}
+
+.fa-transgender {
+  color: purple;
 }
 
 .action-button {
@@ -139,6 +161,11 @@ body::-webkit-scrollbar{
   border-radius: 2px;
   padding-top: 2px;
   padding-bottom: 5px;
+}
+
+.pet-pic-and-name {
+  margin-top: 2em;
+  display: block;
 }
 
 /*---------- pwa lnding page ----------*/
@@ -313,13 +340,6 @@ article {
   padding: 1em;
 }
 
-.post-header p {
-  font-family: "Quicksand";
-  font-weight: 500;
-  display: inline-block;
-  font-size: 4vw;
-}
-
 .post-description {
   width: 70%;
   margin: 2em auto;
@@ -409,7 +429,7 @@ article {
 }
 
 .user-post {
-  opacity: .5;
+  /* opacity: .5; */
 }
 
 .user-post:hover {
@@ -720,7 +740,7 @@ article {
   }
 
   .username {
-    font-size: 2em;
+    font-size: 1.8em;
   }
 
   .inline-text {

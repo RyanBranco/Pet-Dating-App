@@ -29,18 +29,20 @@
                     <div class="post-info">
                         <div class="post-header">
                             <img class="profile-pic small" src="<%= user.avatar %>" alt="user profile picture">
-                            <p><%= user.name %> <small>about</small> </p>
-                            <img id="new-post-pet-pic" class="profile-pic small" src="<%= awsURL + user.pets[0].fileId %>" alt="pet profile picture">
+                            <p class="username"><%= user.name %> <small>about</small> </p>
                             <p> 
                                 <label>
-                                    <select class="pet-select" name="pet">
-                                        <% user.pets.forEach((pet, index) => { %>
-                                            <option value="<%= pet._id %>"><%= pet.name %></option>
-                                        <% }) %> 
-                                    </select> 
+                                    <div class="pet-pic-and-name">
+                                        <img id="new-post-pet-pic" class="profile-pic small" src="<%= awsURL + user.pets[0].fileId %>" alt="pet profile picture">
+                                        <select class="pet-select" name="pet">
+                                            <% user.pets.forEach((pet, index) => { %>
+                                                <option value="<%= pet._id %>"><%= pet.name %></option>
+                                            <% }) %> 
+                                        </select> 
+                                        <small>the</small> 
+                                        <p class="pet-name" id="new-post-pet-type"><%= user.pets[0].type %></p> 
+                                    </div>
                                 </label>
-                                <small>the</small> 
-                                <span id="new-post-pet-type"><%= user.pets[0].type %>:</span> 
                             </p>
                         </div>
                         <div>
@@ -49,19 +51,19 @@
                         <div class="post-actions">
                             <div class="reactions-container">
                                 <span class="reaction user-post">
-                                    <button class="emoji-button"><a>😸</a></button>
+                                    <button class="emoji-button" disabled><a>😸</a></button>
                                     <p>0</p>
                                 </span>
                                 <span class="reaction user-post">
-                                    <button class="emoji-button"><a>😻</a></button>
+                                    <button class="emoji-button" disabled><a>😻</a></button>
                                     <p>0</p>
                                 </span>
                                 <span class="reaction user-post">
-                                    <button class="emoji-button"><a>😹</a></button>
+                                    <button class="emoji-button" disabled><a>😹</a></button>
                                     <p>0</p>
                                 </span>
                                 <span class="reaction user-post">
-                                    <button class="emoji-button"><a>😿</a></button>
+                                    <button class="emoji-button" disabled><a>😿</a></button>
                                     <p>0</p>
                                 </span>
                             </div>

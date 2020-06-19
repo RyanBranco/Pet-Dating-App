@@ -105,6 +105,9 @@ function comment(req, res) {
 
 function react(req, res, next) {
     Post.findById((req.params.id), (err, post) => {
+        if (post.user._id == req.user._id) {
+            return err;
+        }
         switch (req.params.reaction) {
             case "smile":
                 if (req.user.smiles.indexOf(post.id) !== -1) {
