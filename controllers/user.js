@@ -31,8 +31,18 @@ module.exports = {
 }
 
 function show(req, res) {
-    res.render('user/userDetails', {
-        user: req.user
+    User.findById(req.user._id)
+    .populate('pets')
+    .populate('posts')
+    .populate('commented')
+    .populate('smiles')
+    .populate('laughs')
+    .populate('loves')
+    .populate('crys').sort({"created_at": 1}).exec((err, user) => {
+        console.log(user)
+        res.render('user/userDetails', {
+            user
+        })
     })
 }
 

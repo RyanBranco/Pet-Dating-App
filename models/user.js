@@ -12,7 +12,8 @@ const userSchema = new Schema({
     smiles: [{type: Schema.Types.ObjectId, ref: "Post"}],
     laughs: [{type: Schema.Types.ObjectId, ref: "Post"}],
     loves: [{type: Schema.Types.ObjectId, ref: "Post"}],
-    crys: [{type: Schema.Types.ObjectId, ref: "Post"}]
+    crys: [{type: Schema.Types.ObjectId, ref: "Post"}],
+    activity: [{type: Schema.Types.ObjectId, ref: "History"}]
 }, {
     timestamps: true
 });

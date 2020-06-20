@@ -1,7 +1,8 @@
 const reactions  = document.querySelectorAll(".reaction");
 const main = document.querySelector("main");
 const inputs = document.querySelector(".file-input");
-const newPostFilename = document.querySelector(".filename-text");
+const newPostFileLabel = document.querySelector("#new-post-file-label");
+const changePhotoButton = document.querySelector("#change-photo-p")
 const petSelect = document.querySelector(".pet-select");
 const userPetPic = document.querySelectorAll(".pet-pic");
 const userPetType = document.querySelectorAll(".pet-type");
@@ -25,7 +26,8 @@ window.onload = function () {
 if (inputs) {
     inputs.addEventListener("change", function(e) {
         if (e.target.files[0].name) {
-            newPostFilename.innerHTML = `${e.target.files[0].name}`
+            newPostFileLabel.style.display = "none";
+            changePhotoButton.style.display = "block";
         }
     });
 }
@@ -68,4 +70,11 @@ if (currentRoute === "/matcher") {
     mobileNavUserpets.style.borderTop = "3px solid white";
     desktopNavUserpets.style.borderBottom = "3px solid white";
 }
+/*--------------------*/
+
+/*- change new post picture -*/
+let loadFile = function(event) {
+	var image = document.getElementById('post-image-preview');
+	image.src = URL.createObjectURL(event.target.files[0]);
+};
 /*--------------------*/

@@ -17,19 +17,19 @@
             <br>
             <br>
             <br>
+            <p class="small-text optional-image-text">* Image is optional</p>
             <div class="post-card new-post-card">
                 <form action="/post/add" method="POST" enctype="multipart/form-data">
+                    <img id="post-image-preview" src="">
+                    <label for="file"><p id="change-photo-p">Change Photo</p></label>
                     <div class="new-post-image-container">
-                        <input id="file" class="file-input hidden" type="file" name="attatchment" />
-                        <label for="file">
+                        <input id="file" class="file-input hidden" type="file" name="attatchment" onchange="loadFile(event)"/>
+                        <label id="new-post-file-label" for="file">
                             <i class="fas fa-camera-retro"></i>
-                            <p class="filename-text">(optional)</p>
                         </label>
                     </div>
-                    <div class="post-info">
+                    <div class="post-info new-post-info">
                         <div class="post-header">
-                            <img class="profile-pic small" src="<%= user.avatar %>" alt="user profile picture">
-                            <p class="username"><%= user.name %> <small>about</small> </p>
                             <p> 
                                 <label>
                                     <div class="pet-pic-and-name">
@@ -47,29 +47,6 @@
                         </div>
                         <div>
                             <textarea class="new-post-text-box" name="content" placeholder="Whats up dog?" rows="4"></textarea>
-                        </div>
-                        <div class="post-actions">
-                            <div class="reactions-container">
-                                <span class="reaction user-post">
-                                    <button class="emoji-button" disabled><a>😸</a></button>
-                                    <p>0</p>
-                                </span>
-                                <span class="reaction user-post">
-                                    <button class="emoji-button" disabled><a>😻</a></button>
-                                    <p>0</p>
-                                </span>
-                                <span class="reaction user-post">
-                                    <button class="emoji-button" disabled><a>😹</a></button>
-                                    <p>0</p>
-                                </span>
-                                <span class="reaction user-post">
-                                    <button class="emoji-button" disabled><a>😿</a></button>
-                                    <p>0</p>
-                                </span>
-                            </div>
-                            <div>
-                                <i class="fas fa-comment-dots nohover"></i>
-                            </div>
                         </div>
                     </div>
                     <input type="hidden" name="fileId" value="">
