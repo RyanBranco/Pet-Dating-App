@@ -4,12 +4,21 @@
 <body>
     <%- include("../partials/desktopnav") %>
     <main>
+        <div class="filler"></div>
         <% let awsURL = "https://pet-dating.s3-us-west-1.amazonaws.com/" %>
         <% let smileReacted = "" %>
         <% let loveReacted = "" %>
         <% let laughReacted = "" %>
         <% let cryReacted = "" %>
         <p class="hidden current-route">/comments</p>
+        <% let disabled %>
+        <% if (post.user.id === user.id) { %>
+            <% userPost = "user-post" %>
+            <% disabled = "disabled" %>
+            <% } else { %>
+            <% userPost = "" %>
+            <% disabled = "" %>
+        <% }%>
         <div class="post-card">
             <% if (post.fileId) { %>
                 <img class="post-pic" src="<%= awsURL + post.fileId %>">
@@ -36,10 +45,12 @@
             <% } %>
             <div class="post-info">
                 <div class="post-header">
-                    <img class="profile-pic small" src="<%= post.user.avatar %>">
-                    <p><%= post.user.name %> <small>about</small> </p>
-                    <img class="profile-pic small" src="<%= awsURL + post.pet.fileId %>">
-                    <p> <%= post.pet.name %> <small>the</small> <%= post.pet.type %>: </p>
+                    <img class="profile-pic extra-small" src="<%= post.user.avatar %>">
+                    <p class="username"><%= post.user.name %> <small>about</small> </p>
+                    <div class="pet-pic-and-name">
+                        <img class="profile-pic small" src="<%= awsURL + post.pet.fileId %>">
+                        <p class="pet-name"> <%= post.pet.name %> <small>the</small> <%= post.pet.type %>: </p>
+                    </div>
                 </div>
                 <p class="post-description"><%= post.content %></p>
                 <div class="post-actions">
@@ -51,25 +62,25 @@
                         <% }%>
                         <span class="reaction <%= userPost %>">
                             <form action="/post/react/<%= postId %>/smile?_method=PUT" method="POST">
-                                <button class="emoji-button <%= smileReacted %>"><a>😸</a></button>
+                                <button class="emoji-button <%= smileReacted %>" <%= disabled %>><a>😸</a></button>
                             </form>
                             <p><%= post.smile.length %></p>
                         </span>
                         <span class="reaction <%= userPost %>">
                             <form action="/post/react/<%= postId %>/love?_method=PUT" method="POST">
-                                <button class="emoji-button <%= loveReacted %>"><a>😻</a></button>
+                                <button class="emoji-button <%= loveReacted %>"<%= disabled %> ><a>😻</a></button>
                             </form>
                             <p><%= post.love.length %></p>
                         </span>
                         <span class="reaction <%= userPost %>">
                             <form action="/post/react/<%= postId %>/laugh?_method=PUT" method="POST">
-                                <button class="emoji-button <%= laughReacted %>"><a>😹</a></button>
+                                <button class="emoji-button <%= laughReacted %>" <%= disabled %>><a>😹</a></button>
                             </form>
                             <p><%= post.laugh.length %></p>
                         </span>
                         <span class="reaction <%= userPost %>">
                             <form action="/post/react/<%= postId %>/cry?_method=PUT" method="POST">
-                                <button class="emoji-button <%= cryReacted %>"><a>😿</a></button>
+                                <button class="emoji-button <%= cryReacted %>" <%= disabled %>><a>😿</a></button>
                             </form>
                             <p><%= post.cry.length %></p>
                         </span>
@@ -80,7 +91,6 @@
         <div class="comment-area">
             <img class="profile-pic extra-small" src="<%= user.avatar %>">
             <p class="username"><%= userFirstName %></p>
-            <p class="inline-text">:</p>
             <form action="/post/view/<%= postId %>/comment" method="POST">
                 <textarea class="comment-box" name="content" rows="3"></textarea>
                 <input class="action-button comment-button" type="submit" value="Comment">

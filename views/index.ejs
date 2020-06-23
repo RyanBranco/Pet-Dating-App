@@ -2,7 +2,7 @@
 <html lang="en">
   <%- include("partials/head") %> 
   <body>
-    <main>
+    <main class="landing-main">
       <p class="hidden current-route">/</p>
       <div id="landing-header">
         <img id="landing-logo" src="/images/newpetmatcherlogo384x384.png" alt="pet matcher logo">
@@ -11,9 +11,6 @@
         <p>A social platform for all of your pets</p>
       </div>
       <div id="landing-box">
-        <p><strong><u>Add PetMatcher to your home screen to use the app</u></strong></p>
-        <p>or</p> 
-        <p>Log-in with Google to continue with the web version</p> 
         <form action="/auth/google">
           <button type="submit">
             <img src="/images/Google_logo.png" alt="google logo">
@@ -21,6 +18,8 @@
           </button>
         </form>
       </div>
+      <br>
+      <p class="inline-text"><strong>Add PetMatcher to your home screen to use the app</strong></p>
       <div class="center-text">
         <a class="small-text" href="/howto">How do I add PetMatcher to my homescreen?</a>
       </div>

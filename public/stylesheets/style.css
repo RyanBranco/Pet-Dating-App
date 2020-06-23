@@ -13,6 +13,11 @@ html {
   font-size: 62.5%;
 }
 body {
+  background: #5a96cef3;
+  background: rgb(90,150,206);
+  background: linear-gradient(141deg, rgba(90,150,206,0.9290091036414566) 46%, rgba(0,174,255,0.6685049019607843) 88%);
+}
+main {
   background-color: #fffdf7;
 }
 a {
@@ -118,6 +123,7 @@ body::-webkit-scrollbar{
 }
 
 .action-button {
+  cursor: pointer;
   background-color: white;
   color: rgb(0, 110, 255);
   border: 1px solid rgb(0, 110, 255);
@@ -127,7 +133,7 @@ body::-webkit-scrollbar{
 
 .inline-text {
   font-size: 3.5vw;
-  display: inline-block;
+  text-align: center;
 }
 
 .center-text {
@@ -168,9 +174,15 @@ body::-webkit-scrollbar{
   display: block;
 }
 
+.pet-select {
+  font-family: "Quicksand";
+  font-weight: 500;
+  display: inline-block;
+  font-size: 5vw;
+}
+
 /*---------- pwa lnding page ----------*/
 #pwalanding-main {
-  height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -201,6 +213,14 @@ article {
 }
 
 /*---------- landing page ----------*/
+.landing-main {
+  color: white;
+  height: 100vh;
+  background: #5a96cef3;
+  background: rgb(90,150,206);
+  background: linear-gradient(141deg, rgba(90,150,206,0.9290091036414566) 46%, rgba(0,174,255,0.6685049019607843) 88%);
+}
+
 #landing-logo-192x192 {
   display: block;
   margin: 0 auto;
@@ -219,11 +239,11 @@ article {
 
 #landing-header {
   text-align: center;
-  color: black;
+  color: white;
 }
 
 #landing-header p {
-  margin-bottom: 3vh;
+  margin-bottom: 1vh;
 }
 
 #landing-box {
@@ -231,15 +251,10 @@ article {
   margin-bottom: 2vh;
   padding: 2vh;
   width: 85%;
-  color: white;
+  color: black;
   font-size: 1.25em;
   text-align: center;
   border-radius: 3px;
-  background: #5a96cef3;
-  background: rgb(90,150,206);
-  background: linear-gradient(141deg, rgba(90,150,206,0.9290091036414566) 46%, rgba(0,174,255,0.6685049019607843) 88%);
-  box-shadow: 0px 0px 7px rgba(39, 39, 39, 0.075);
-  text-shadow: 0px 0px 3px grey;
 }
 
 #landing-box p {
@@ -326,7 +341,7 @@ article {
 /*---------- post cards ----------*/
 .post-card {
   width: 100%;
-  margin: 7vh 0vh 11vh 0vh;
+  margin: 0vh 0vh 11vh 0vh;
   background-color: white;
   box-shadow: 0px 0px 9px #57575742;
   position: relative;
