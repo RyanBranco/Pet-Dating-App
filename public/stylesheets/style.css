@@ -214,6 +214,10 @@ article {
   background: #5a96cef3;
   background: rgb(90,150,206);
   background: linear-gradient(141deg, rgba(90,150,206,0.9290091036414566) 46%, rgba(0,174,255,0.6685049019607843) 88%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .landing-main .inline-text {
@@ -225,7 +229,6 @@ article {
 #landing-logo-192x192 {
   display: block;
   margin: 0 auto;
-  padding: 5vh 0;
   padding-bottom: 3vh;
   width: 40%;
 }
