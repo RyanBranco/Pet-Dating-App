@@ -216,6 +216,12 @@ article {
   background: linear-gradient(141deg, rgba(90,150,206,0.9290091036414566) 46%, rgba(0,174,255,0.6685049019607843) 88%);
 }
 
+.landing-main .inline-text {
+  margin: 0 auto;
+  width: 70%;
+  margin-bottom: .5em;
+}
+
 #landing-logo-192x192 {
   display: block;
   margin: 0 auto;
