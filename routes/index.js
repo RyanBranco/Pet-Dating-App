@@ -12,7 +12,9 @@ router.get("/howto", function(req, res) {
 })
 
 router.get("/pwalanding", function(req,res) {
-  res.render("pwalanding")
+  res.render("pwalanding", {
+    landingPage: "landingpage"
+  })
 })
 
 router.get('/auth/google', passport.authenticate(
