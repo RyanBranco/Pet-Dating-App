@@ -8,11 +8,11 @@ router.get('/', function(req, res, next) {
 });
 
 router.get("/howto", function(req, res) {
-  res.render("howto")
+  res.render("howto");
 })
 
 router.get("/pwalanding", function(req,res) {
-  res.render("pwalanding")
+  res.render("pwalanding");
 })
 
 router.get('/auth/google', passport.authenticate(
