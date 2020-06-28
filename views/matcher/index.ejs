@@ -17,10 +17,8 @@
             <% let disabled %>
             <% if (posts[i].user.id === user.id) { %>
                 <% userPost = "user-post" %>
-                <% disabled = "disabled" %>
                 <% } else { %>
                 <% userPost = "" %>
-                <% disabled = "" %>
             <% }%>
             <% for (let j = 0; j < posts[i].smile.length; j++) { %>
                 <% if (posts[i].smile[j] == user.id) { %>
@@ -60,25 +58,25 @@
                         <div class="reactions-container">
                             <span class="reaction <%= userPost %>">
                                 <form action="/post/react/<%= postId %>/smile?_method=PUT" method="POST">
-                                    <button class="emoji-button <%= smileReacted %>" <%= disabled %>><a>😸</a></button>
+                                    <button class="emoji-button <%= smileReacted %>"><a>😸</a></button>
                                 </form>
                                 <p><%= posts[i].smile.length %></p>
                             </span>
                             <span class="reaction <%= userPost %>">
                                 <form action="/post/react/<%= postId %>/love?_method=PUT" method="POST">
-                                    <button class="emoji-button <%= loveReacted %>" <%= disabled %>><a>😻</a></button>
+                                    <button class="emoji-button <%= loveReacted %>"><a>😻</a></button>
                                 </form>
                                 <p><%= posts[i].love.length %></p>
                             </span>
                             <span class="reaction <%= userPost %>">
                                 <form action="/post/react/<%= postId %>/laugh?_method=PUT" method="POST">
-                                    <button class="emoji-button <%= laughReacted %>" <%= disabled %>><a>😹</a></button>
+                                    <button class="emoji-button <%= laughReacted %>"><a>😹</a></button>
                                 </form>
                                 <p><%= posts[i].laugh.length %></p>
                             </span>
                             <span class="reaction <%= userPost %>">
                                 <form action="/post/react/<%= postId %>/cry?_method=PUT" method="POST">
-                                    <button class="emoji-button <%= cryReacted %>" <%= disabled %>><a>😿</a></button>
+                                    <button class="emoji-button <%= cryReacted %>"><a>😿</a></button>
                                 </form>
                                 <p><%= posts[i].cry.length %></p>
                             </span>
